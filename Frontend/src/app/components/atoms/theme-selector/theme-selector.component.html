@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="btn"
+  aria-label="Toggle dark mode"
+  (click)="themeToggled.emit()"
+>
+  @if (theme() === "dark") {
+    <img src="assets/icons/sun.svg" alt="light-theme" width="20" />
+  } @else {
+    <img src="assets/icons/moon.svg" alt="dark-theme" width="20" />
+  }
+</button>

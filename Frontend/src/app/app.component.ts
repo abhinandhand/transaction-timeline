@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { NavbarComponent } from '@components/molecules/navbar/navbar.component';
+import { AppStore } from '@store/app.store';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  providers: [AppStore],
 })
 export class AppComponent {
-  title = 'frontend';
+  readonly appStore = inject(AppStore);
 }
