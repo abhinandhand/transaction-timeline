@@ -1,11 +1,12 @@
 <div class="timeline-container container-lg mt-2 p-4">
+  @if(appStore.error()) {
+  <app-http-error
+    [error]="appStore.error()"
+    (retryClicked)="appStore.loadTimeline()"
+  ></app-http-error>
+  } @else if(appStore.isLoading()) {
+  <app-loader></app-loader>
+  } @else {
   <router-outlet></router-outlet>
-
-  <!-- @for (item of appStore.timeline(); track item.id) {
-    <li>{{ item.transaction }}</li>
-  } @empty {
-    <li>There are no items.</li>
-  } -->
-
-  {{appStore.timeline() | json}}
+  }
 </div>

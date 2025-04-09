@@ -1,0 +1,18 @@
+<div class="alert alert-danger mt-5" role="alert">
+  <div class="d-flex align-items-center">
+    <div>
+      <h4 class="alert-heading">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i> Error
+        {{ error()?.status }}
+      </h4>
+      <p class="mt-2">{{ error()?.message }}</p>
+      @if (retryCount <= 3) {
+        <button class="btn btn-primary" (click)="onRetryClicked()">
+          Retry
+        </button>
+      } @else {
+        <p class="mt-2">Retry limit reached. Please try again later.</p>
+      }
+    </div>
+  </div>
+</div>

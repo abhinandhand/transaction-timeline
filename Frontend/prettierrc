@@ -1,7 +1,23 @@
 {
+  "tabWidth": 2,
+  "useTabs": false,
   "singleQuote": true,
-  "trailingComma": "es5",
-  "printWidth": 120,
   "semi": true,
-  "tabWidth": 2
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "printWidth": 80,
+  "htmlWhitespaceSensitivity": "ignore",
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "options": {
+        "parser": "angular",
+        "singleAttributePerLine": true
+      }
+    }
+  ]
 }
