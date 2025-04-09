@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-transaction-detail',
   imports: [],
   templateUrl: './transaction-detail.component.html',
-  styleUrl: './transaction-detail.component.scss'
+  styleUrl: './transaction-detail.component.scss',
 })
-export class TransactionDetailComponent {
-
-}
+export class TransactionDetailComponent {}

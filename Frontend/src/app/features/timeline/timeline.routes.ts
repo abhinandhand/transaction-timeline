@@ -6,7 +6,7 @@ export const timelineRoutes: Routes = [
     path: 'timeline',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./timeline.component').then((c) => c.TimelineComponent),
+      import('./timeline.page').then((c) => c.TimelineComponent),
     children: [
       {
         path: '',
@@ -17,7 +17,7 @@ export const timelineRoutes: Routes = [
       },
       {
         path: 'detail/:id',
-        loadChildren: () =>
+        loadComponent: () =>
           import(
             '../timeline/components/transaction-detail/transaction-detail.component'
           ).then((c) => c.TransactionDetailComponent),

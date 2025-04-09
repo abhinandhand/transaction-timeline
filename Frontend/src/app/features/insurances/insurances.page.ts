@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-insurances',
   imports: [],
   templateUrl: './insurances.component.html',
-  styleUrl: './insurances.component.scss'
+  styleUrl: './insurances.component.scss',
 })
-export class InsurancesComponent {
-
-}
+export class InsurancesComponent {}
