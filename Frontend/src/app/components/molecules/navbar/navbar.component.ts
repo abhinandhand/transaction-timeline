@@ -7,7 +7,6 @@ import { AppStore } from '@store/app.store';
   imports: [ThemeSelectorComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
-  providers: [AppStore],
 })
 export class NavbarComponent {
   appStore = inject(AppStore);
