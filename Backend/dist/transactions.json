@@ -314,5 +314,21 @@
         }
       ]
     }
-  ]
+  ],
+  "account": {
+    "id": 1,
+    "name": "Tom Enricks",
+    "iban": "NL00RABO0123456789",
+    "balance": 1234.56,
+    "currencyCode": "EUR",
+    "currencyRate": 1.173628
+  },
+  "pagination": {
+    "currentPage": 1,
+    "pageSize": 2,
+    "totalItems": 4,
+    "totalPages": 3,
+    "hasNext": true,
+    "hasPrevious": false
+  }
 }

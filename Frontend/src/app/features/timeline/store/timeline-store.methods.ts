@@ -8,20 +8,22 @@ import {
   type,
   withMethods,
 } from '@ngrx/signals';
+import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import {
-  setErrorState,
-  setLoadingState,
-} from '@store/app-config-store/app-config-store.updaters';
-import { withAppConfigStore } from '@store/app-config-store/withAppConfigStore';
 import { catchError, EMPTY, filter, pipe, switchMap, tap } from 'rxjs';
-import { TimelineResponse, TimelineRoute } from '../model/timeline.model';
+import {
+  TimelineEntry,
+  TimelineResponse,
+  TimelineRoute,
+} from '../model/timeline.model';
 import { TimelineService } from '../services/timeline.service';
 import { TimelineState } from './timeline-store.state';
 import {
   setAccountState,
+  setNoMoreTransactionsState,
   setPaginationState,
-  setTimelineState,
+  setTimelineErrorState,
+  setTimelineLoadingState,
 } from './timeline-store.updater';
 
 export function withTimelineStoreMethods() {
@@ -29,8 +31,7 @@ export function withTimelineStoreMethods() {
     {
       state: type<TimelineState>(),
     },
-    withAppConfigStore(),
-
+    withEntities<TimelineEntry>(),
     withMethods((store) => {
       const _timelineService = inject(TimelineService);
       const router = inject(Router);
@@ -51,7 +52,9 @@ export function withTimelineStoreMethods() {
 
       const loadTimeline = rxMethod<void>(
         pipe(
-          tap(() => patchState(store, (state) => setLoadingState(state, true))),
+          tap(() =>
+            patchState(store, (state) => setTimelineLoadingState(state, true)),
+          ),
           switchMap(() =>
             _timelineService.getTimeline().pipe(
               tap((timelineResponse) => loadTimelineSuccess(timelineResponse)),
@@ -63,20 +66,40 @@ export function withTimelineStoreMethods() {
 
       const loadTimelineSuccess = (timelineResponse: TimelineResponse) => {
         const { account, days, pagination } = timelineResponse;
-        patchState(store, (state) => setLoadingState(state, false));
+        patchState(store, (state) => setTimelineLoadingState(state, false));
         patchState(store, (state) => setAccountState(state, account));
-        patchState(store, (state) => setTimelineState(state, days));
+        patchState(store, addEntities(days));
         patchState(store, (state) => setPaginationState(state, pagination));
+        if (!pagination.hasNext) {
+          patchState(store, (state) => setNoMoreTransactionsState(state, true));
+        }
       };
 
       const loadTimelineFailure = (error: HttpErrorResponse) => {
-        patchState(store, (state) => setLoadingState(state, false));
-        patchState(store, (state) => setErrorState(state, error));
+        patchState(store, (state) => setTimelineLoadingState(state, false));
+        patchState(store, (state) => setTimelineErrorState(state, error));
         return EMPTY;
       };
 
+      const loadMoreTimeline = rxMethod<void>(
+        pipe(
+          filter(() => store.pagination().hasNext),
+          switchMap(() =>
+            _timelineService
+              .getTimeline(store.pagination().currentPage + 1)
+              .pipe(
+                tap((timelineResponse) =>
+                  loadTimelineSuccess(timelineResponse),
+                ),
+                catchError((error) => loadTimelineFailure(error)),
+              ),
+          ),
+        ),
+      );
+
       return {
         loadTimeline,
+        loadMoreTimeline,
         handleTimelineRouteChange,
       };
     }),

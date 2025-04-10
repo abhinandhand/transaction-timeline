@@ -1,10 +1,10 @@
 <div class="timeline-container container-lg mt-2 p-4">
-  @if(appStore.error()) {
+  @if(timelineStore.error()) {
   <app-http-error
-    [error]="appStore.error()"
-    (retryClicked)="appStore.loadTimeline()"
+    [error]="timelineStore.error()"
+    (retryClicked)="timelineStore.loadTimeline()"
   ></app-http-error>
-  } @else if(appStore.isLoading()) {
+  } @else if(timelineStore.isLoading()) {
   <app-loader></app-loader>
   } @else {
   <router-outlet></router-outlet>

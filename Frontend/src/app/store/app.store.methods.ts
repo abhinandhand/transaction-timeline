@@ -4,10 +4,10 @@ import {
   type,
   withMethods,
 } from '@ngrx/signals';
-import { AppConfigState } from './app-config-store.state';
+import { AppConfigState } from './app.store.state';
 import { Theme } from '@core/models/app.model';
 
-export function withAppConfigStoreMethods() {
+export function withAppStoreMethods() {
   return signalStoreFeature(
     { state: type<AppConfigState>() },
 

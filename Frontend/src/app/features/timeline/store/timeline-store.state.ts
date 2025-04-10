@@ -1,14 +1,18 @@
-import { Account, Pagination, TimelineEntry } from '../model/timeline.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Account, Pagination } from '../model/timeline.model';
 
 export interface TimelineState {
-  timeline: TimelineEntry[];
   account: Account;
   pagination: Pagination;
+  isLoading: boolean;
+  error: HttpErrorResponse | null;
+  isNoMoreTransactions: boolean;
 }
 
 const initialTimelineState: TimelineState = {
-  timeline: [],
-
+  isLoading: false,
+  error: null,
+  isNoMoreTransactions: false,
   account: {
     id: 0,
     name: '',
