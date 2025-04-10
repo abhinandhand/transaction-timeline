@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '@core/guards/app.guards';
+import { TimelineRoute } from './model/timeline.model';
 
 export const timelineRoutes: Routes = [
   {
-    path: 'timeline',
+    path: TimelineRoute.Timeline,
+    title: 'Transaction timeline',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./timeline.page').then((c) => c.TimelineComponent),
+      import('./timeline.page').then((c) => c.TimelinePageComponent),
     children: [
       {
         path: '',
@@ -16,7 +18,8 @@ export const timelineRoutes: Routes = [
           ),
       },
       {
-        path: 'detail/:id',
+        path: `${TimelineRoute.Detail}/:id`,
+        title: 'Transaction detail',
         loadComponent: () =>
           import(
             '../timeline/components/transaction-detail/transaction-detail.component'

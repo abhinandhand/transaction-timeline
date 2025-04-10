@@ -1,13 +1,36 @@
-import { Timeline } from './timeline.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Account, Pagination } from '../model/timeline.model';
 
 export interface TimelineState {
-  timeline: Timeline;
+  account: Account;
+  pagination: Pagination;
+  isLoading: boolean;
+  error: HttpErrorResponse | null;
+  isNoMoreTransactions: boolean;
 }
 
-export function initialiseTimelineFactory() {
-  return {
-    timeline: {
-      days: [],
-    },
-  };
+const initialTimelineState: TimelineState = {
+  isLoading: false,
+  error: null,
+  isNoMoreTransactions: false,
+  account: {
+    id: 0,
+    name: '',
+    iban: '',
+    balance: 0,
+    currencyCode: 'EUR',
+    currencyRate: 1,
+  },
+  pagination: {
+    currentPage: 1,
+    pageSize: 10,
+    totalItems: 0,
+    totalPages: 0,
+    hasNext: false,
+    hasPrevious: false,
+  },
+};
+
+export function initialiseTimelineFactory(): TimelineState {
+  return { ...initialTimelineState };
 }

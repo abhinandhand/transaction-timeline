@@ -1,12 +1,54 @@
 import { TimelineState } from './timeline-store.state';
-import { Timeline } from './timeline.model';
+import { Account, Pagination, TimelineEntry } from '../model/timeline.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { patchState } from '@ngrx/signals';
 
-export function setTimelineState(
+export function setTimelineLoadingState(
   state: TimelineState,
-  timeline: Timeline,
+  isLoading: boolean,
 ): TimelineState {
   return {
     ...state,
-    timeline,
+    isLoading,
+  };
+}
+
+export function setTimelineErrorState(
+  state: TimelineState,
+  error: HttpErrorResponse,
+): TimelineState {
+  return {
+    ...state,
+    error,
+  };
+}
+
+export function setAccountState(
+  state: TimelineState,
+  account: Account,
+): TimelineState {
+  return {
+    ...state,
+    account,
+  };
+}
+
+export function setPaginationState(
+  state: TimelineState,
+  pagination: Pagination,
+): TimelineState {
+  return {
+    ...state,
+    pagination,
+  };
+}
+
+export function setNoMoreTransactionsState(
+  state: TimelineState,
+  isNoMoreTransactions: boolean,
+): TimelineState {
+  return {
+    ...state,
+    isNoMoreTransactions,
   };
 }

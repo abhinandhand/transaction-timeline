@@ -1,10 +1,38 @@
-<div class="container container-md mx-auto">
-  <h1 class="fst-italic fw-normal text-primary m-0">Tom Enricks</h1>
-  <p>€ 20.499,25</p>
+<div class="container container-md mx-auto py-5">
+  <!-- Header Section -->
+  <h1 class="fst-italic fw-normal text-primary m-0">
+    {{ timelineStore.account().name }}
+  </h1>
+  <p>{{ timelineStore.account().balance }}</p>
 
-  <!-- @for (item of appStore.timeline(); track item.id) {
-    <li>{{ item.transaction }}</li>
-  } @empty {
-    <li>There are no items.</li>
-  } -->
+  <!-- Scrollable Timeline -->
+  <div class="card border-0 shadow-sm">
+    <div
+      class="card-body p-0"
+      appInfiniteScroll
+      (nearEnd)="timelineStore.loadMoreTimeline()"
+    >
+      @for (day of timelineStore.entities(); track day.id) {
+        @defer (on viewport) {
+          <app-transaction-day-list [transactionDay]="day">
+          </app-transaction-day-list>
+
+          @if (
+            timelineStore.isNoMoreTransactions() &&
+            timelineStore.entities().length === $index + 1
+          ) {
+            <div class="text-center">
+              <p class="text-muted fs-5 m-0">No more transactions to load.</p>
+            </div>
+          }
+        } @placeholder {
+          <div>Loading...</div>
+        }
+      } @empty {
+        <div class="p-3 text-center">
+          <p class="text-muted fs-5 m-0">There are no items to display.</p>
+        </div>
+      }
+    </div>
+  </div>
 </div>

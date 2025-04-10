@@ -1,15 +1,16 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoaderComponent } from '@components/atoms/loader/loader.component';
-import { AppStore } from '@store/app.store';
-import { HttpErrorComponent } from '../../components/molecules/http-error/http-error.component';
+import { LoaderComponent } from '@core/components/atoms/loader/loader.component';
+import { HttpErrorComponent } from '../../core/components/molecules/http-error/http-error.component';
+import { TimelineStore } from './store/timeline.store';
 
 @Component({
-  selector: 'app-timeline',
+  selector: 'app-timeline-page',
   imports: [RouterOutlet, LoaderComponent, HttpErrorComponent],
   templateUrl: './timeline.page.html',
   styleUrl: './timeline.page.scss',
+  providers: [TimelineStore],
 })
-export class TimelineComponent {
-  readonly appStore = inject(AppStore);
+export class TimelinePageComponent {
+  readonly timelineStore = inject(TimelineStore);
 }

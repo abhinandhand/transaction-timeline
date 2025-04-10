@@ -1,9 +1,9 @@
-import { signalStore } from '@ngrx/signals';
-import { withAppConfigStore } from './app-config-store/withAppConfigStore';
-import { withTimelineStore } from '@features/timeline/store/withTimelineStore';
+import { signalStore, withState } from '@ngrx/signals';
+import { AppConfigState, initialiseAppConfigFactory } from './app.store.state';
+import { withAppStoreMethods } from './app.store.methods';
 
 export const AppStore = signalStore(
   { providedIn: 'root' },
-  withAppConfigStore(),
-  withTimelineStore(),
+  withState<AppConfigState>(initialiseAppConfigFactory),
+  withAppStoreMethods(),
 );
