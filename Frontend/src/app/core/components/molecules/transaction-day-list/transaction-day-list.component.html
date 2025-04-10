@@ -1,0 +1,29 @@
+<div class="day-section my-5">
+  <!-- Day Header -->
+  <div class="bg-light p-3 border-bottom sticky-top" style="top: 0; z-index: 1">
+    <h5 class="m-0 text-primary fw-semibold">{{ transactionDay().id }}</h5>
+  </div>
+
+  <!-- Transactions -->
+  @if (transactionDay().transactions) {
+    <ul class="list-group list-group-flush">
+      @for (
+        transaction of transactionDay().transactions;
+        track transaction.id
+      ) {
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center px-3 py-4"
+        >
+          <span class="fw-medium">{{
+            transaction?.otherParty?.name || "Unknown"
+          }}</span>
+          <span class="text-nowrap">
+            € {{ transaction.amount || "0.00" }}
+          </span>
+        </li>
+      }
+    </ul>
+  } @else {
+    <div class="p-3 text-muted text-center">No transactions for this day</div>
+  }
+</div>

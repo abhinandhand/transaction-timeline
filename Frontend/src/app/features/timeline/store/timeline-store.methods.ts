@@ -15,10 +15,14 @@ import {
 } from '@store/app-config-store/app-config-store.updaters';
 import { withAppConfigStore } from '@store/app-config-store/withAppConfigStore';
 import { catchError, EMPTY, filter, pipe, switchMap, tap } from 'rxjs';
+import { TimelineResponse, TimelineRoute } from '../model/timeline.model';
 import { TimelineService } from '../services/timeline.service';
 import { TimelineState } from './timeline-store.state';
-import { setTimelineState } from './timeline-store.updater';
-import { Timeline } from './timeline.model';
+import {
+  setAccountState,
+  setPaginationState,
+  setTimelineState,
+} from './timeline-store.updater';
 
 export function withTimelineStoreMethods() {
   return signalStoreFeature(
@@ -36,7 +40,8 @@ export function withTimelineStoreMethods() {
           .pipe(
             filter(
               (router) =>
-                router instanceof NavigationEnd && router.url === '/timeline',
+                router instanceof NavigationEnd &&
+                router.url === `/${TimelineRoute.Timeline}`,
             ),
             tap(() => loadTimeline()),
             takeUntilDestroyed(),
@@ -49,16 +54,19 @@ export function withTimelineStoreMethods() {
           tap(() => patchState(store, (state) => setLoadingState(state, true))),
           switchMap(() =>
             _timelineService.getTimeline().pipe(
-              tap((timelineData) => loadTimelineSuccess(timelineData)),
+              tap((timelineResponse) => loadTimelineSuccess(timelineResponse)),
               catchError((error) => loadTimelineFailure(error)),
             ),
           ),
         ),
       );
 
-      const loadTimelineSuccess = (timelineData: Timeline) => {
+      const loadTimelineSuccess = (timelineResponse: TimelineResponse) => {
+        const { account, days, pagination } = timelineResponse;
         patchState(store, (state) => setLoadingState(state, false));
-        patchState(store, (state) => setTimelineState(state, timelineData));
+        patchState(store, (state) => setAccountState(state, account));
+        patchState(store, (state) => setTimelineState(state, days));
+        patchState(store, (state) => setPaginationState(state, pagination));
       };
 
       const loadTimelineFailure = (error: HttpErrorResponse) => {

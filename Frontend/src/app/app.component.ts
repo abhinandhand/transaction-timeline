@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from '@components/molecules/navbar/navbar.component';
+import { NavbarComponent } from '@core/components/molecules/navbar/navbar.component';
 import { AppStore } from '@store/app.store';
 @Component({
   selector: 'app-root',
