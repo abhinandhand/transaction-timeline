@@ -12,10 +12,11 @@ import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { catchError, EMPTY, filter, pipe, switchMap, tap } from 'rxjs';
 import {
+  Timeline,
   TimelineEntry,
-  TimelineResponse,
   TimelineRoute,
 } from '../model/timeline.model';
+import { TimelineRouterService } from '../services/timeline-router.service';
 import { TimelineService } from '../services/timeline.service';
 import { TimelineState } from './timeline-store.state';
 import {
@@ -34,15 +35,43 @@ export function withTimelineStoreMethods() {
     withEntities<TimelineEntry>(),
     withMethods((store) => {
       const _timelineService = inject(TimelineService);
-      const router = inject(Router);
+      const _router = inject(Router);
+      const _routerService = inject(TimelineRouterService);
 
-      const handleTimelineRouteChange = () => {
-        router.events
+      const timelineRouteEffect$ = () => {
+        _router.events
+          .pipe(
+            filter((event) => event instanceof NavigationEnd),
+            filter(
+              (event) =>
+                event.urlAfterRedirects === `/${TimelineRoute.Timeline}`,
+            ),
+            filter(() =>
+              _routerService.isTimelineNetworkFetchNeeded(
+                store.viewedTransactionId(),
+                store.entities(),
+              ),
+            ),
+            tap(() => loadTimeline()),
+            takeUntilDestroyed(),
+          )
+          .subscribe();
+      };
+
+      const timelineDetailRouteEffect$ = () => {
+        _router.events
           .pipe(
             filter(
-              (router) =>
-                router instanceof NavigationEnd &&
-                router.url === `/${TimelineRoute.Timeline}`,
+              (event): event is NavigationEnd => event instanceof NavigationEnd,
+            ),
+            filter((event) =>
+              event.urlAfterRedirects.includes(`/${TimelineRoute.Detail}/`),
+            ),
+            filter((event) =>
+              _routerService.isTimelineDetailNetworkFetchNeeded(
+                event,
+                store.entities(),
+              ),
             ),
             tap(() => loadTimeline()),
             takeUntilDestroyed(),
@@ -57,15 +86,15 @@ export function withTimelineStoreMethods() {
           ),
           switchMap(() =>
             _timelineService.getTimeline().pipe(
-              tap((timelineResponse) => loadTimelineSuccess(timelineResponse)),
+              tap((timeline) => loadTimelineSuccess(timeline)),
               catchError((error) => loadTimelineFailure(error)),
             ),
           ),
         ),
       );
 
-      const loadTimelineSuccess = (timelineResponse: TimelineResponse) => {
-        const { account, days, pagination } = timelineResponse;
+      const loadTimelineSuccess = (timeline: Timeline) => {
+        const { account, days, pagination } = timeline;
         patchState(store, (state) => setTimelineLoadingState(state, false));
         patchState(store, (state) => setAccountState(state, account));
         patchState(store, addEntities(days));
@@ -97,10 +126,19 @@ export function withTimelineStoreMethods() {
         ),
       );
 
+      const setViewedTransactionId = (transactionId: string | null): void => {
+        patchState(store, (state) => ({
+          ...state,
+          viewedTransactionId: transactionId,
+        }));
+      };
+
       return {
         loadTimeline,
         loadMoreTimeline,
-        handleTimelineRouteChange,
+        setViewedTransactionId,
+        timelineRouteEffect$,
+        timelineDetailRouteEffect$,
       };
     }),
   );

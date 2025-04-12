@@ -12,7 +12,8 @@ export const TimelineStore = signalStore(
   withHooks((store) => {
     return {
       onInit() {
-        store.handleTimelineRouteChange();
+        store.timelineRouteEffect$();
+        store.timelineDetailRouteEffect$();
       },
     };
   }),

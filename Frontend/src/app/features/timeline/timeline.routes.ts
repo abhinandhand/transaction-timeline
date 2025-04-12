@@ -13,9 +13,9 @@ export const timelineRoutes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./components/transactions/transactions.component').then(
-            (c) => c.TransactionsComponent,
-          ),
+          import(
+            './components/transactions-overview/transactions-overview.component'
+          ).then((c) => c.TransactionsOverviewComponent),
       },
       {
         path: `${TimelineRoute.Detail}/:id`,

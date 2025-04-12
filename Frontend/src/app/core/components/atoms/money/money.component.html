@@ -1,0 +1,10 @@
+<span aria-label="amount()">
+  {{
+    amount()
+      | currency
+        : currency()
+        : (showSymbol() ? "symbol" : "")
+        : "1.2-2"
+        : "nl-NL"
+  }}
+</span>

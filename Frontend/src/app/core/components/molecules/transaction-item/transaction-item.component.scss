@@ -1,0 +1,12 @@
+.txn-item {
+    cursor: pointer;
+    text-decoration: none;
+
+    li {
+        border-radius: 2px;
+
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.084);
+        }
+    }
+}

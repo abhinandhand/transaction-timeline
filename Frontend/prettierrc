@@ -4,11 +4,11 @@
   "singleQuote": true,
   "semi": true,
   "bracketSpacing": true,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "trailingComma": "es5",
-  "bracketSameLine": true,
   "printWidth": 80,
-  "htmlWhitespaceSensitivity": "ignore",
+  "parser": "angular",
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": [

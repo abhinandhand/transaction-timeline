@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/timeline" class="text-primary text-decoration-none"
+        >Overview</a
+      >
+    </li>
+    <li class="breadcrumb-item">
+      @if (showDetailsBreadcrumb()) {
+        <a routerLink="/timeline" class="text-primary text-decoration-none"
+          >Transaction</a
+        >
+      } @else {
+        <span class="breadcrumb-item active" aria-current="page"
+          >Transaction</span
+        >
+      }
+    </li>
+    @if (showDetailsBreadcrumb()) {
+      <li class="breadcrumb-item active" aria-current="page">Details</li>
+    }
+  </ol>
+</nav>
