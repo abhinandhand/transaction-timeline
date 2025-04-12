@@ -1,0 +1,13 @@
+<span
+  class="display-2 fs-6 fw-normal"
+  [ngClass]="{
+    'badge text-bg-success-light': isCredit(),
+  }"
+>
+  @if (isCredit()) {
+    +
+  } @else {
+    -
+  }
+  <app-money [amount]="amount()"> </app-money
+></span>

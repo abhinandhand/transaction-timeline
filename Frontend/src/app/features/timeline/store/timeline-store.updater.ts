@@ -1,7 +1,6 @@
-import { TimelineState } from './timeline-store.state';
-import { Account, Pagination, TimelineEntry } from '../model/timeline.model';
 import { HttpErrorResponse } from '@angular/common/http';
-import { patchState } from '@ngrx/signals';
+import { Account, Pagination } from '../model/timeline.model';
+import { TimelineState } from './timeline-store.state';
 
 export function setTimelineLoadingState(
   state: TimelineState,
@@ -52,3 +51,13 @@ export function setNoMoreTransactionsState(
     isNoMoreTransactions,
   };
 }
+
+export const setViewedTransactionId = (
+  state: TimelineState,
+  transactionId: string | null,
+): TimelineState => {
+  return {
+    ...state,
+    viewedTransactionId: transactionId,
+  };
+};

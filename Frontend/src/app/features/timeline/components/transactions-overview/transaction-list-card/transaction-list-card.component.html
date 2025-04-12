@@ -1,0 +1,29 @@
+<div class="my-2">
+  <app-card>
+    <div class="card-body pb-1">
+      <div class="transaction-day-label">
+        <app-transaction-date-header
+          [dateInfo]="transactionDay().id"
+        ></app-transaction-date-header>
+
+        @if (transactionDay().transactions) {
+          <ul class="list-group list-group-flush">
+            @for (
+              transaction of transactionDay().transactions;
+              track transaction.id
+            ) {
+              <app-transaction-item
+                [data]="transaction"
+                [isLast]="$index === transactionDay().transactions.length - 1"
+              ></app-transaction-item>
+            }
+          </ul>
+        } @else {
+          <div class="p-3 text-muted text-center">
+            No transactions for this day
+          </div>
+        }
+      </div>
+    </div>
+  </app-card>
+</div>

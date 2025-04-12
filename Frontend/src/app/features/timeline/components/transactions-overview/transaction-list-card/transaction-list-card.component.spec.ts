@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionDayListComponent } from './transaction-day-list.component';
+import { TransactionDayListComponent } from './transaction-list-card.component';
 
 describe('TransactionDayListComponent', () => {
   let component: TransactionDayListComponent;
@@ -8,9 +8,8 @@ describe('TransactionDayListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransactionDayListComponent]
-    })
-    .compileComponents();
+      imports: [TransactionDayListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TransactionDayListComponent);
     component = fixture.componentInstance;

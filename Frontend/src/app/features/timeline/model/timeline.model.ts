@@ -8,7 +8,18 @@ interface OtherParty {
   iban: string;
 }
 
-interface Transaction {
+/* Backend data model */
+export interface TimelineResponse {
+  days: TimelineEntryResponse[];
+  account: Account;
+  pagination: Pagination;
+}
+export interface TimelineEntryResponse {
+  id: string;
+  transactions: TransactionResponse[];
+}
+
+export interface TransactionResponse {
   id: number;
   timestamp: string;
   amount: number;
@@ -16,11 +27,6 @@ interface Transaction {
   currencyRate?: number;
   description: string;
   otherParty?: OtherParty;
-}
-
-export interface TimelineEntry {
-  id: string;
-  transactions: Transaction[];
 }
 
 export interface Account {
@@ -41,8 +47,21 @@ export interface Pagination {
   hasPrevious: boolean;
 }
 
-export interface TimelineResponse {
+/* Frontend data model */
+
+export interface Timeline {
   days: TimelineEntry[];
   account: Account;
   pagination: Pagination;
+}
+
+export interface TimelineEntry {
+  id: string;
+  transactions: Transaction[];
+}
+
+export interface Transaction extends TransactionResponse {
+  transactionId: string;
+  amountInBaseCurrency: number;
+  isCredit: boolean;
 }

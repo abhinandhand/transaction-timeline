@@ -1,6 +1,40 @@
 {
   "days": [
     {
+      "id": "2025-04-11",
+      "transactions": [
+        {
+          "id": 1,
+          "timestamp": "2025-04-11T14:30:47.123Z",
+          "amount": 17.95,
+          "currencyCode": "USD",
+          "currencyRate": 1.173628,
+          "description": "Some interesting description",
+          "otherParty": {
+            "name": "Mister XX",
+            "iban": "NL00RABO0123456789"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2025-11-04",
+      "transactions": [
+        {
+          "id": 1,
+          "timestamp": "2025-11-04T14:30:47.123Z",
+          "amount": 17.95,
+          "currencyCode": "USD",
+          "currencyRate": 1.173628,
+          "description": "Some interesting description",
+          "otherParty": {
+            "name": "Mister XX",
+            "iban": "NL00RABO0123456789"
+          }
+        }
+      ]
+    },
+    {
       "id": "2022-11-08",
       "transactions": [
         {
@@ -101,7 +135,7 @@
           "timestamp": "2022-11-02T23:30:45.123Z",
           "amount": -99.87,
           "currencyCode": "EUR",
-          "description": "Dinner at Restaurant A",
+          "description": "Some interesting description",
           "otherParty": {
             "name": "Restaurant A",
             "iban": "NL00RABO0128356789"
@@ -110,207 +144,9 @@
         {
           "id": 2,
           "timestamp": "2022-11-02T12:45:47.123Z",
-          "amount": -50.0,
+          "amount": -50,
           "currencyCode": "EUR",
-          "description": "ATM Withdrawal"
-        },
-        {
-          "id": 3,
-          "timestamp": "2022-11-03T10:15:30.123Z",
-          "amount": 200.0,
-          "currencyCode": "USD",
-          "description": "Salary Payment",
-          "otherParty": {
-            "name": "Employer Inc.",
-            "iban": "NL00RABO1234567890"
-          }
-        },
-        {
-          "id": 4,
-          "timestamp": "2022-11-04T08:20:15.123Z",
-          "amount": -15.75,
-          "currencyCode": "EUR",
-          "description": "Coffee Shop",
-          "otherParty": {
-            "name": "Coffee Corner",
-            "iban": "NL00RABO9876543210"
-          }
-        },
-        {
-          "id": 5,
-          "timestamp": "2022-11-05T14:45:00.123Z",
-          "amount": -120.0,
-          "currencyCode": "EUR",
-          "description": "Groceries",
-          "otherParty": {
-            "name": "Supermarket",
-            "iban": "NL00RABO8765432109"
-          }
-        },
-        {
-          "id": 6,
-          "timestamp": "2022-11-06T09:30:45.123Z",
-          "amount": -45.5,
-          "currencyCode": "EUR",
-          "description": "Fuel Station",
-          "otherParty": {
-            "name": "Fuel Station A",
-            "iban": "NL00RABO7654321098"
-          }
-        },
-        {
-          "id": 7,
-          "timestamp": "2022-11-07T18:15:30.123Z",
-          "amount": -30.0,
-          "currencyCode": "EUR",
-          "description": "Movie Tickets",
-          "otherParty": {
-            "name": "Cinema B",
-            "iban": "NL00RABO6543210987"
-          }
-        },
-        {
-          "id": 8,
-          "timestamp": "2022-11-08T20:45:15.123Z",
-          "amount": -75.0,
-          "currencyCode": "EUR",
-          "description": "Dinner at Restaurant B",
-          "otherParty": {
-            "name": "Restaurant B",
-            "iban": "NL00RABO5432109876"
-          }
-        },
-        {
-          "id": 9,
-          "timestamp": "2022-11-09T11:30:00.123Z",
-          "amount": 500.0,
-          "currencyCode": "EUR",
-          "description": "Freelance Payment",
-          "otherParty": {
-            "name": "Client X",
-            "iban": "NL00RABO4321098765"
-          }
-        },
-        {
-          "id": 10,
-          "timestamp": "2022-11-10T16:00:45.123Z",
-          "amount": -60.0,
-          "currencyCode": "EUR",
-          "description": "Online Shopping",
-          "otherParty": {
-            "name": "E-Shop",
-            "iban": "NL00RABO3210987654"
-          }
-        },
-        {
-          "id": 11,
-          "timestamp": "2022-11-11T13:45:30.123Z",
-          "amount": -25.0,
-          "currencyCode": "EUR",
-          "description": "Gym Membership",
-          "otherParty": {
-            "name": "Fitness Center",
-            "iban": "NL00RABO2109876543"
-          }
-        },
-        {
-          "id": 12,
-          "timestamp": "2022-11-12T09:15:15.123Z",
-          "amount": -10.0,
-          "currencyCode": "EUR",
-          "description": "Bakery Purchase",
-          "otherParty": {
-            "name": "Bakery C",
-            "iban": "NL00RABO1098765432"
-          }
-        },
-        {
-          "id": 13,
-          "timestamp": "2022-11-13T15:30:00.123Z",
-          "amount": -200.0,
-          "currencyCode": "EUR",
-          "description": "Electronics Purchase",
-          "otherParty": {
-            "name": "Electronics Store",
-            "iban": "NL00RABO0987654321"
-          }
-        },
-        {
-          "id": 14,
-          "timestamp": "2022-11-14T12:45:45.123Z",
-          "amount": -5.0,
-          "currencyCode": "EUR",
-          "description": "Parking Fee",
-          "otherParty": {
-            "name": "Parking Lot",
-            "iban": "NL00RABO9876543210"
-          }
-        },
-        {
-          "id": 15,
-          "timestamp": "2022-11-15T10:30:30.123Z",
-          "amount": 100.0,
-          "currencyCode": "USD",
-          "description": "Refund",
-          "otherParty": {
-            "name": "Retailer D",
-            "iban": "NL00RABO8765432109"
-          }
-        },
-        {
-          "id": 16,
-          "timestamp": "2022-11-16T14:15:15.123Z",
-          "amount": -80.0,
-          "currencyCode": "EUR",
-          "description": "Clothing Store",
-          "otherParty": {
-            "name": "Fashion Boutique",
-            "iban": "NL00RABO7654321098"
-          }
-        },
-        {
-          "id": 17,
-          "timestamp": "2022-11-17T17:45:00.123Z",
-          "amount": -35.0,
-          "currencyCode": "EUR",
-          "description": "Taxi Ride",
-          "otherParty": {
-            "name": "Taxi Service",
-            "iban": "NL00RABO6543210987"
-          }
-        },
-        {
-          "id": 18,
-          "timestamp": "2022-11-18T19:30:45.123Z",
-          "amount": -150.0,
-          "currencyCode": "EUR",
-          "description": "Hotel Booking",
-          "otherParty": {
-            "name": "Hotel E",
-            "iban": "NL00RABO5432109876"
-          }
-        },
-        {
-          "id": 19,
-          "timestamp": "2022-11-19T08:15:30.123Z",
-          "amount": -20.0,
-          "currencyCode": "EUR",
-          "description": "Breakfast",
-          "otherParty": {
-            "name": "Cafe F",
-            "iban": "NL00RABO4321098765"
-          }
-        },
-        {
-          "id": 20,
-          "timestamp": "2022-11-20T11:45:15.123Z",
-          "amount": -300.0,
-          "currencyCode": "EUR",
-          "description": "Furniture Purchase",
-          "otherParty": {
-            "name": "Furniture Store",
-            "iban": "NL00RABO3210987654"
-          }
+          "description": "ATM"
         }
       ]
     }

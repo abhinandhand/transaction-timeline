@@ -1,0 +1,26 @@
+<div
+  class="my-2"
+  appInfiniteScroll
+  (nearEnd)="timelineStore.loadMoreTimeline()"
+>
+  <app-account-holder-info [account]="timelineStore.account()" />
+
+  <div class="mt-5">
+    <app-transaction-filter></app-transaction-filter>
+  </div>
+
+  <div class="my-4">
+    @for (day of timelineStore.entities(); track day.id) {
+      <app-transaction-list [transactionDay]="day"> </app-transaction-list>
+
+      @if (
+        timelineStore.isNoMoreTransactions() &&
+        timelineStore.entities().length === $index + 1
+      ) {
+        <div class="text-center">
+          <p class="text-muted fs-5 m-0">No more transactions to load.</p>
+        </div>
+      }
+    }
+  </div>
+</div>
