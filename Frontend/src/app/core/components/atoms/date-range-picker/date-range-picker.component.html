@@ -1,0 +1,26 @@
+<div class="input-group">
+  <input
+    type="date"
+    class="form-control"
+    [ngModel]="tempStartDate()"
+    (ngModelChange)="tempStartDate.set($event || null)"
+    aria-label="Start Date"
+  />
+  <span class="input-group-text">to</span>
+  <input
+    type="date"
+    class="form-control"
+    [ngModel]="tempEndDate()"
+    (ngModelChange)="tempEndDate.set($event || null)"
+    aria-label="End Date"
+  />
+  <button
+    class="btn btn-primary btn-sm"
+    type="button"
+    (click)="updateDateRange()"
+    aria-label="Apply date range"
+    [disabled]="!tempStartDate() && !tempEndDate()"
+  >
+    Go
+  </button>
+</div>

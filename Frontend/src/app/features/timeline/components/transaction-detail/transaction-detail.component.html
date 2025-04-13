@@ -7,12 +7,17 @@
           <span class="">
             {{ transactionDetail.otherParty?.name }}
           </span>
-          <span class="fs-5 text-success">$1,200</span>
+          <span class="fs-5 text-success">
+            <app-transaction-amount
+              [amount]="transactionDetail.amountInBaseCurrency"
+              [isCredit]="transactionDetail.isCredit"
+              [showCurrency]="true"
+              customClass="display-1 fs-5"
+            ></app-transaction-amount>
+          </span>
         </div>
         <small class="text-muted">
-          <app-transaction-date
-            [dateInfo]="transactionDetail.timestamp"
-          ></app-transaction-date>
+          {{ transactionDetail.timestamp | date: "MMMM d, y, h:mm a" }}
         </small>
       </div>
     </app-card>
@@ -44,6 +49,14 @@
               [uppercaseKey]="true"
             ></app-description-list>
           }
+        }
+
+        @if (transactionDetail.currencyCode !== "EUR") {
+          <app-description-list
+            title="USD"
+            [value]="`${transactionDetail.amount}`"
+            [showCopy]="false"
+          ></app-description-list>
         }
       </div>
     </app-card>

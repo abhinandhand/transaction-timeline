@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { TimelineEntry, TimelineRoute } from '../model/timeline.model';
 import {
   extractTimelineId,
   extractTransactionDetailIdFromUrl,
-} from '@utils/app.util';
-import { TimelineEntry, TimelineRoute } from '../model/timeline.model';
+} from '../utils/timeline.utils';
 
 /**
  * Service to handle timeline-related routing and fetch decisions.

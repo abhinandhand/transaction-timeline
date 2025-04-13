@@ -5,7 +5,7 @@ import { TimelineRoute } from './model/timeline.model';
 export const timelineRoutes: Routes = [
   {
     path: TimelineRoute.Timeline,
-    title: 'Transaction timeline',
+    title: 'Nexbank - Transaction timeline',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./timeline.page').then((c) => c.TimelinePageComponent),

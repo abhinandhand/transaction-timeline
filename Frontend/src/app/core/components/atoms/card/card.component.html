@@ -1,3 +1,9 @@
-<div class="card border-0 shadow-lg rounded-3" [ngClass]="customClass()">
+<div
+  class="card shadow-lg rounded-3"
+  [ngClass]="[
+    customClass() ?? '',
+    appStore.theme() === 'light' ? 'border-0' : '',
+  ]"
+>
   <ng-content />
 </div>
