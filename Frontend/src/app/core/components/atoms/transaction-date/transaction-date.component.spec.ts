@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionDateHeaderComponent } from './transaction-date-header.component';
+import { TransactionDateHeaderComponent } from './transaction-date.component';
 
 describe('TransactionDateHeaderComponent', () => {
   let component: TransactionDateHeaderComponent;
@@ -8,9 +8,8 @@ describe('TransactionDateHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransactionDateHeaderComponent]
-    })
-    .compileComponents();
+      imports: [TransactionDateHeaderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TransactionDateHeaderComponent);
     component = fixture.componentInstance;

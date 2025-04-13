@@ -4,7 +4,7 @@
       "id": "2022-09-25",
       "transactions": [
         {
-          "id": "txn__0001",
+          "id": 1,
           "timestamp": "2022-12-25T23:30:45.123Z",
           "amount": -99.87,
           "currencyCode": "EUR",
@@ -15,7 +15,7 @@
           }
         },
         {
-          "id": "txn__0002",
+          "id": 2,
           "timestamp": "2022-12-25T12:45:47.123Z",
           "amount": -50,
           "currencyCode": "EUR",
@@ -27,7 +27,7 @@
       "id": "2022-09-15",
       "transactions": [
         {
-          "id": "txn__0003",
+          "id": 1,
           "timestamp": "2022-11-15T14:30:47.123Z",
           "amount": 17.95,
           "currencyCode": "USD",
@@ -39,7 +39,7 @@
           }
         },
         {
-          "id": "txn__0004",
+          "id": 2,
           "timestamp": "2022-11-15T12:45:47.123Z",
           "amount": -25.95,
           "currencyCode": "EUR",
@@ -50,7 +50,7 @@
           }
         },
         {
-          "id": "txn__0005",
+          "id": 3,
           "timestamp": "2022-11-15T10:30:47.123Z",
           "amount": 3456.67,
           "currencyCode": "EUR",
@@ -66,7 +66,7 @@
       "id": "2022-09-02",
       "transactions": [
         {
-          "id": "txn__0006",
+          "id": 1,
           "timestamp": "2022-09-20T17:12:47.123Z",
           "amount": -38.95,
           "currencyCode": "EUR",
@@ -77,7 +77,7 @@
           }
         },
         {
-          "id": "txn__0007",
+          "id": 2,
           "timestamp": "2022-09-20T15:45:00.123Z",
           "amount": -987.65,
           "currencyCode": "EUR",
@@ -88,7 +88,7 @@
           }
         },
         {
-          "id": "txn__0008",
+          "id": 3,
           "timestamp": "2022-09-20T11:56:12.123Z",
           "amount": 123.45,
           "currencyCode": "EUR",
@@ -104,7 +104,7 @@
       "id": "2022-09-01",
       "transactions": [
         {
-          "id": "txn__0009",
+          "id": 1,
           "timestamp": "2022-09-05T11:39:59.123Z",
           "amount": -58.47,
           "currencyCode": "EUR",
@@ -120,7 +120,7 @@
       "id": "2022-08-31",
       "transactions": [
         {
-          "id": "txn__1001",
+          "id": 1,
           "timestamp": "2022-08-31T23:30:45.123Z",
           "amount": -120.5,
           "currencyCode": "EUR",
@@ -131,7 +131,7 @@
           }
         },
         {
-          "id": "txn__1002",
+          "id": 2,
           "timestamp": "2022-08-31T18:45:47.123Z",
           "amount": -45.0,
           "currencyCode": "EUR",
@@ -147,7 +147,7 @@
       "id": "2022-08-30",
       "transactions": [
         {
-          "id": "txn__1003",
+          "id": 1,
           "timestamp": "2022-08-30T14:30:47.123Z",
           "amount": 200.0,
           "currencyCode": "USD",
@@ -158,7 +158,7 @@
           }
         },
         {
-          "id": "txn__1004",
+          "id": 2,
           "timestamp": "2022-08-30T10:45:47.123Z",
           "amount": -75.95,
           "currencyCode": "EUR",
@@ -174,7 +174,7 @@
       "id": "2022-08-29",
       "transactions": [
         {
-          "id": "txn__1005",
+          "id": 1,
           "timestamp": "2022-08-29T17:12:47.123Z",
           "amount": -38.95,
           "currencyCode": "EUR",
@@ -185,7 +185,7 @@
           }
         },
         {
-          "id": "txn__1006",
+          "id": 2,
           "timestamp": "2022-08-29T15:45:00.123Z",
           "amount": -987.65,
           "currencyCode": "EUR",
@@ -201,7 +201,7 @@
       "id": "2022-08-28",
       "transactions": [
         {
-          "id": "txn__1007",
+          "id": 1,
           "timestamp": "2022-08-28T11:56:12.123Z",
           "amount": 123.45,
           "currencyCode": "EUR",
@@ -212,7 +212,7 @@
           }
         },
         {
-          "id": "txn__1008",
+          "id": 2,
           "timestamp": "2022-08-28T09:39:59.123Z",
           "amount": -58.47,
           "currencyCode": "EUR",
@@ -228,7 +228,7 @@
       "id": "2022-08-27",
       "transactions": [
         {
-          "id": "txn__1009",
+          "id": 1,
           "timestamp": "2022-08-27T20:30:45.123Z",
           "amount": -99.87,
           "currencyCode": "EUR",
@@ -239,7 +239,7 @@
           }
         },
         {
-          "id": "txn__1010",
+          "id": 2,
           "timestamp": "2022-08-27T12:45:47.123Z",
           "amount": -50,
           "currencyCode": "EUR",
@@ -251,7 +251,7 @@
       "id": "2022-08-26",
       "transactions": [
         {
-          "id": "txn__1011",
+          "id": 1,
           "timestamp": "2022-08-26T14:30:47.123Z",
           "amount": 17.95,
           "currencyCode": "USD",
@@ -262,7 +262,7 @@
           }
         },
         {
-          "id": "txn__1012",
+          "id": 2,
           "timestamp": "2022-08-26T10:45:47.123Z",
           "amount": -25.95,
           "currencyCode": "EUR",
@@ -278,7 +278,7 @@
       "id": "2022-08-25",
       "transactions": [
         {
-          "id": "txn__1013",
+          "id": 1,
           "timestamp": "2022-08-25T17:12:47.123Z",
           "amount": -38.95,
           "currencyCode": "EUR",
@@ -289,7 +289,7 @@
           }
         },
         {
-          "id": "txn__1014",
+          "id": 2,
           "timestamp": "2022-08-25T15:45:00.123Z",
           "amount": -987.65,
           "currencyCode": "EUR",
@@ -305,7 +305,7 @@
       "id": "2022-08-24",
       "transactions": [
         {
-          "id": "txn__1015",
+          "id": 1,
           "timestamp": "2022-08-24T11:56:12.123Z",
           "amount": 123.45,
           "currencyCode": "EUR",
@@ -316,7 +316,7 @@
           }
         },
         {
-          "id": "txn__1016",
+          "id": 2,
           "timestamp": "2022-08-24T09:39:59.123Z",
           "amount": -58.47,
           "currencyCode": "EUR",

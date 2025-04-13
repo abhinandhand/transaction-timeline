@@ -1,11 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import {
   patchState,
   signalStoreFeature,
   type,
+  withComputed,
   withMethods,
 } from '@ngrx/signals';
 import { addEntities, withEntities } from '@ngrx/signals/entities';
@@ -27,7 +28,13 @@ import {
   setTimelineLoadingState,
 } from './timeline-store.updater';
 
-export function withTimelineStoreMethods() {
+/**
+ * Timeline store feature that provides methods and computed properties
+ * for managing the timeline state.
+ *
+ * @returns {SignalStoreFeature<TimelineState>} The timeline store feature.
+ */
+export function withTimelineStoreFeature() {
   return signalStoreFeature(
     {
       state: type<TimelineState>(),
@@ -36,7 +43,7 @@ export function withTimelineStoreMethods() {
     withMethods((store) => {
       const _timelineService = inject(TimelineService);
       const _router = inject(Router);
-      const _routerService = inject(TimelineRouterService);
+      const _timelineRouterService = inject(TimelineRouterService);
 
       const timelineRouteEffect$ = () => {
         _router.events
@@ -47,8 +54,7 @@ export function withTimelineStoreMethods() {
                 event.urlAfterRedirects === `/${TimelineRoute.Timeline}`,
             ),
             filter(() =>
-              _routerService.isTimelineNetworkFetchNeeded(
-                store.viewedTransactionId(),
+              _timelineRouterService.isTimelineNetworkFetchNeeded(
                 store.entities(),
               ),
             ),
@@ -68,7 +74,7 @@ export function withTimelineStoreMethods() {
               event.urlAfterRedirects.includes(`/${TimelineRoute.Detail}/`),
             ),
             filter((event) =>
-              _routerService.isTimelineDetailNetworkFetchNeeded(
+              _timelineRouterService.isTimelineDetailNetworkFetchNeeded(
                 event,
                 store.entities(),
               ),
@@ -126,19 +132,42 @@ export function withTimelineStoreMethods() {
         ),
       );
 
-      const setViewedTransactionId = (transactionId: string | null): void => {
+      const setViewedTransactionDetailId = (
+        transactionDetailId: string | null,
+      ): void => {
         patchState(store, (state) => ({
           ...state,
-          viewedTransactionId: transactionId,
+          viewedTransactionDetailId: transactionDetailId,
         }));
       };
 
       return {
         loadTimeline,
         loadMoreTimeline,
-        setViewedTransactionId,
+        setViewedTransactionDetailId,
         timelineRouteEffect$,
         timelineDetailRouteEffect$,
+      };
+    }),
+    withComputed((store) => {
+      const viewedTimelineId = computed(() =>
+        store.viewedTransactionDetailId()?.split('_').pop(),
+      );
+
+      const currentTransactionDetail = computed(() => {
+        const timeLineEntry = store
+          .entities()
+          .find((item) => item.id === viewedTimelineId());
+
+        return timeLineEntry?.transactions.find(
+          (txn) =>
+            txn.transactionDetailId === store.viewedTransactionDetailId(),
+        );
+      });
+
+      return {
+        viewedTimelineId,
+        currentTransactionDetail,
       };
     }),
   );

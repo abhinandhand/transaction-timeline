@@ -61,7 +61,7 @@ export interface TimelineEntry {
 }
 
 export interface Transaction extends TransactionResponse {
-  transactionId: string;
+  transactionDetailId: string;
   amountInBaseCurrency: number;
   isCredit: boolean;
 }

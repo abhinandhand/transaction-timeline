@@ -2,9 +2,9 @@ import { Injectable, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import {
   extractTimelineId,
-  extractTransactionIdFromUrl,
+  extractTransactionDetailIdFromUrl,
 } from '@utils/app.util';
-import { TimelineEntry } from '../model/timeline.model';
+import { TimelineEntry, TimelineRoute } from '../model/timeline.model';
 
 /**
  * Service to handle timeline-related routing and fetch decisions.
@@ -21,20 +21,8 @@ export class TimelineRouterService {
    * @param timelineEntries - Current timeline entries in store
    * @returns True if a fetch is needed (no valid ID or no matching entry)
    */
-  isTimelineNetworkFetchNeeded(
-    transactionId: string | null,
-    timelineEntries: TimelineEntry[],
-  ): boolean {
-    if (!transactionId) {
-      return true;
-    }
-
-    const timelineId = extractTimelineId(transactionId);
-    if (!timelineId) {
-      return true;
-    }
-
-    return !timelineEntries.some((entry) => entry.id === timelineId);
+  isTimelineNetworkFetchNeeded(timelineEntries: TimelineEntry[]): boolean {
+    return !timelineEntries.length;
   }
 
   /**
@@ -47,9 +35,22 @@ export class TimelineRouterService {
     routeEvent: NavigationEnd,
     timelineEntries: TimelineEntry[],
   ): boolean {
-    const transactionId = extractTransactionIdFromUrl(
+    const transactionDetailId = extractTransactionDetailIdFromUrl(
       routeEvent.urlAfterRedirects,
     );
-    return this.isTimelineNetworkFetchNeeded(transactionId, timelineEntries);
+
+    if (!transactionDetailId?.match(/^txn_\d+_\d{4}-\d{2}-\d{2}$/)) {
+      this.router.navigate([`/${TimelineRoute.Timeline}`]);
+      return false;
+    }
+
+    const timelineId = extractTimelineId(transactionDetailId);
+
+    if (!timelineId) {
+      this.router.navigate([`/${TimelineRoute.Timeline}`]);
+      return false;
+    }
+
+    return !timelineEntries.some((entry) => entry.id === timelineId);
   }
 }

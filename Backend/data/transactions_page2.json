@@ -4,7 +4,7 @@
       "id": "2022-10-25",
       "transactions": [
         {
-          "id": "txn_0001",
+          "id": 1,
           "timestamp": "2022-12-25T23:30:45.123Z",
           "amount": -99.87,
           "currencyCode": "EUR",
@@ -15,7 +15,7 @@
           }
         },
         {
-          "id": "txn_0002",
+          "id": 2,
           "timestamp": "2022-12-25T12:45:47.123Z",
           "amount": -50,
           "currencyCode": "EUR",
@@ -27,7 +27,7 @@
       "id": "2022-10-20",
       "transactions": [
         {
-          "id": "txn_0003",
+          "id": 1,
           "timestamp": "2022-11-15T14:30:47.123Z",
           "amount": 17.95,
           "currencyCode": "USD",
@@ -39,7 +39,7 @@
           }
         },
         {
-          "id": "txn_0004",
+          "id": 2,
           "timestamp": "2022-11-15T12:45:47.123Z",
           "amount": -25.95,
           "currencyCode": "EUR",
@@ -50,7 +50,7 @@
           }
         },
         {
-          "id": "txn_0005",
+          "id": 3,
           "timestamp": "2022-11-15T10:30:47.123Z",
           "amount": 3456.67,
           "currencyCode": "EUR",
@@ -66,7 +66,7 @@
       "id": "2022-10-15",
       "transactions": [
         {
-          "id": "txn_0010",
+          "id": 1,
           "timestamp": "2022-10-15T18:30:45.123Z",
           "amount": -120.5,
           "currencyCode": "EUR",
@@ -77,7 +77,7 @@
           }
         },
         {
-          "id": "txn_0011",
+          "id": 2,
           "timestamp": "2022-10-15T14:45:47.123Z",
           "amount": -45.0,
           "currencyCode": "EUR",
@@ -93,7 +93,7 @@
       "id": "2022-10-14",
       "transactions": [
         {
-          "id": "txn_0012",
+          "id": 1,
           "timestamp": "2022-10-14T10:30:47.123Z",
           "amount": 200.0,
           "currencyCode": "USD",
@@ -104,7 +104,7 @@
           }
         },
         {
-          "id": "txn_0013",
+          "id": 2,
           "timestamp": "2022-10-14T08:45:47.123Z",
           "amount": -75.95,
           "currencyCode": "EUR",
@@ -120,7 +120,7 @@
       "id": "2022-10-13",
       "transactions": [
         {
-          "id": "txn_0014",
+          "id": 1,
           "timestamp": "2022-10-13T17:12:47.123Z",
           "amount": -38.95,
           "currencyCode": "EUR",
@@ -131,7 +131,7 @@
           }
         },
         {
-          "id": "txn_0015",
+          "id": 2,
           "timestamp": "2022-10-13T15:45:00.123Z",
           "amount": -987.65,
           "currencyCode": "EUR",
@@ -147,7 +147,7 @@
       "id": "2022-10-12",
       "transactions": [
         {
-          "id": "txn_0016",
+          "id": 1,
           "timestamp": "2022-10-12T11:56:12.123Z",
           "amount": 123.45,
           "currencyCode": "EUR",
@@ -158,171 +158,13 @@
           }
         },
         {
-          "id": "txn_0017",
+          "id": 2,
           "timestamp": "2022-10-12T09:39:59.123Z",
           "amount": -58.47,
           "currencyCode": "EUR",
           "description": "Coffee Shop",
           "otherParty": {
             "name": "Cafe B",
-            "iban": "NL00RABO0123764789"
-          }
-        }
-      ]
-    },
-    {
-      "id": "2022-10-11",
-      "transactions": [
-        {
-          "id": "txn_0018",
-          "timestamp": "2022-10-11T20:30:45.123Z",
-          "amount": -99.87,
-          "currencyCode": "EUR",
-          "description": "Dinner at Restaurant E",
-          "otherParty": {
-            "name": "Restaurant E",
-            "iban": "NL00RABO0128356789"
-          }
-        },
-        {
-          "id": "txn_0019",
-          "timestamp": "2022-10-11T12:45:47.123Z",
-          "amount": -50,
-          "currencyCode": "EUR",
-          "description": "ATM Withdrawal"
-        }
-      ]
-    },
-    {
-      "id": "2022-10-10",
-      "transactions": [
-        {
-          "id": "txn_0020",
-          "timestamp": "2022-10-10T14:30:47.123Z",
-          "amount": 17.95,
-          "currencyCode": "USD",
-          "description": "Book Purchase",
-          "otherParty": {
-            "name": "Bookstore",
-            "iban": "NL00RABO0123456789"
-          }
-        },
-        {
-          "id": "txn_0021",
-          "timestamp": "2022-10-10T10:45:47.123Z",
-          "amount": -25.95,
-          "currencyCode": "EUR",
-          "description": "Lunch",
-          "otherParty": {
-            "name": "Cafe D",
-            "iban": "NL00RABO9876543210"
-          }
-        }
-      ]
-    },
-    {
-      "id": "2022-10-09",
-      "transactions": [
-        {
-          "id": "txn_0022",
-          "timestamp": "2022-10-09T17:12:47.123Z",
-          "amount": -38.95,
-          "currencyCode": "EUR",
-          "description": "Gym",
-          "otherParty": {
-            "name": "Gym Fit",
-            "iban": "NL00RABO0123456789"
-          }
-        },
-        {
-          "id": "txn_0023",
-          "timestamp": "2022-10-09T15:45:00.123Z",
-          "amount": -987.65,
-          "currencyCode": "EUR",
-          "description": "Rent Payment",
-          "otherParty": {
-            "name": "Landlord",
-            "iban": "NL00RABO9876543210"
-          }
-        }
-      ]
-    },
-    {
-      "id": "2022-10-08",
-      "transactions": [
-        {
-          "id": "txn_0024",
-          "timestamp": "2022-10-08T11:56:12.123Z",
-          "amount": 123.45,
-          "currencyCode": "EUR",
-          "description": "Dinner Payment",
-          "otherParty": {
-            "name": "Friend B",
-            "iban": "NL00RABO3210654789"
-          }
-        },
-        {
-          "id": "txn_0025",
-          "timestamp": "2022-10-08T09:39:59.123Z",
-          "amount": -58.47,
-          "currencyCode": "EUR",
-          "description": "Groceries",
-          "otherParty": {
-            "name": "Supermarket",
-            "iban": "NL00RABO0123764789"
-          }
-        }
-      ]
-    },
-    {
-      "id": "2022-10-18",
-      "transactions": [
-        {
-          "id": "txn_0006",
-          "timestamp": "2022-10-20T17:12:47.123Z",
-          "amount": -38.95,
-          "currencyCode": "EUR",
-          "description": "Gym",
-          "otherParty": {
-            "name": "Gym be fit",
-            "iban": "NL00RABO0123456789"
-          }
-        },
-        {
-          "id": "txn_0007",
-          "timestamp": "2022-10-20T15:45:00.123Z",
-          "amount": -987.65,
-          "currencyCode": "EUR",
-          "description": "Monthly rent",
-          "otherParty": {
-            "name": "RENTAL",
-            "iban": "NL00RABO9876543210"
-          }
-        },
-        {
-          "id": "txn_0008",
-          "timestamp": "2022-10-20T11:56:12.123Z",
-          "amount": 123.45,
-          "currencyCode": "EUR",
-          "description": "Payment request for dinner",
-          "otherParty": {
-            "name": "People to hang with",
-            "iban": "NL00RABO3210654789"
-          }
-        }
-      ]
-    },
-    {
-      "id": "2022-10-17",
-      "transactions": [
-        {
-          "id": "txn_0009",
-          "timestamp": "2022-10-05T11:39:59.123Z",
-          "amount": -58.47,
-          "currencyCode": "EUR",
-          "description": "Some interesting description",
-          "otherParty": {
-            "name": "Groceries",
             "iban": "NL00RABO0123764789"
           }
         }
