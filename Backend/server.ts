@@ -35,8 +35,7 @@ app.get("/api/transactions", (req: any, res: any) => {
   } else if (pageRequested === 3) {
     res.send(require("./transactions_page3.json"));
   } else {
-    // res.send(require("./transactions.json"));
-    res.send(require("./txn-test-data-un-ordered.json"));
+    res.send(require("./transactions.json"));
   }
 });
 

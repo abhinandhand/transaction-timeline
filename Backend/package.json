@@ -6,7 +6,8 @@
   "scripts": {
     "start:mac": "tsc && cp data/* dist/ && node dist/server.js",
     "start:windows": "tsc && xcopy data dist\\ /E /I && node dist\\server.js",
-    "start": "tsc && xcopy data dist\\ /E /I && node dist\\server.js"
+    "build": "tsc && cp -r data dist/",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "body-parser": "1.20.1",
