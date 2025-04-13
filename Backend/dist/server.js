@@ -36,7 +36,7 @@ app.get("/api/transactions", (req, res) => {
         res.send(require("./txn-test-data-un-ordered.json"));
     }
 });
-app.listen(8080, () => {
+app.listen(3000, () => {
     console.log("Express app listening on port 8080!");
 });
 //# sourceMappingURL=server.js.map
