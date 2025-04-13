@@ -11,4 +11,6 @@ import { MoneyComponent } from '@core/components/atoms/money/money.component';
 export class TransactionAmountComponent {
   amount = input.required<number>();
   isCredit = input.required<boolean>();
+  showCurrency = input<boolean>(false);
+  customClass = input<string>('');
 }

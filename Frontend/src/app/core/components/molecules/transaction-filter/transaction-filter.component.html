@@ -1,9 +1,17 @@
 <app-card>
   <div class="card-body container-fluid">
-    <div class="row">
-      <div class="col-md-7"></div>
-      <div class="col-md-5">
-        <app-input-search placeholder="Search transactions"></app-input-search>
+    <div class="row gy-3">
+      <div class="col-md-7 col-12">
+        <app-date-range-picker
+          (dateRangeEvent)="onDateRangeChange($event)"
+        ></app-date-range-picker>
+      </div>
+
+      <div class="col-md-5 col-12">
+        <app-input-search
+          placeholder="Search transactions"
+          (searchEvent)="onSearch($event)"
+        ></app-input-search>
       </div>
     </div>
   </div>

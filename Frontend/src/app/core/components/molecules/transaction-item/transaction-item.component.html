@@ -10,9 +10,12 @@
       <span class="fw-medium">{{ data().otherParty?.name || "Unknown" }}</span>
     </div>
 
-    <app-transaction-amount
-      [amount]="data().amountInBaseCurrency"
-      [isCredit]="data().isCredit"
-    ></app-transaction-amount>
+    <div class="display-2 fs-6">
+      <app-transaction-amount
+        [amount]="data().amountInBaseCurrency"
+        [isCredit]="data().isCredit"
+        customClass="display-2 fs-6"
+      ></app-transaction-amount>
+    </div>
   </li>
 </a>

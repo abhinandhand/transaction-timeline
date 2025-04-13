@@ -51,3 +51,13 @@ export function setNoMoreTransactionsState(
     isNoMoreTransactions,
   };
 }
+
+export function setTimelineFiltersState(
+  state: TimelineState,
+  filters: TimelineState['filters'],
+): TimelineState {
+  return {
+    ...state,
+    filters,
+  };
+}

@@ -1,3 +1,5 @@
+import { DateRange } from '@core/models/app.model';
+
 export enum TimelineRoute {
   Timeline = 'timeline',
   Detail = 'detail',
@@ -57,6 +59,7 @@ export interface Timeline {
 
 export interface TimelineEntry {
   id: string;
+  transactionDate: string;
   transactions: Transaction[];
 }
 
@@ -64,4 +67,13 @@ export interface Transaction extends TransactionResponse {
   transactionDetailId: string;
   amountInBaseCurrency: number;
   isCredit: boolean;
+}
+
+/* filter query model */
+
+export interface TimelineFilters {
+  searchQuery: string;
+  dateRange: DateRange;
+  currencyCode?: string | null;
+  transactionType?: 'debit' | 'credit' | null;
 }

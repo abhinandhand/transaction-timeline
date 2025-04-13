@@ -15,16 +15,24 @@ import { catchError, EMPTY, filter, pipe, switchMap, tap } from 'rxjs';
 import {
   Timeline,
   TimelineEntry,
+  TimelineFilters,
   TimelineRoute,
 } from '../model/timeline.model';
 import { TimelineRouterService } from '../services/timeline-router.service';
 import { TimelineService } from '../services/timeline.service';
+import {
+  filterNonEmptyTimelineEntries,
+  filterTimelineByDateRange,
+  filterTimelineByQuery,
+  sortTimelineEntities,
+} from '../utils/timeline.utils';
 import { TimelineState } from './timeline-store.state';
 import {
   setAccountState,
   setNoMoreTransactionsState,
   setPaginationState,
   setTimelineErrorState,
+  setTimelineFiltersState,
   setTimelineLoadingState,
 } from './timeline-store.updater';
 
@@ -132,6 +140,10 @@ export function withTimelineStoreFeature() {
         ),
       );
 
+      const updateFilters = (filters: TimelineFilters) => {
+        patchState(store, (state) => setTimelineFiltersState(state, filters));
+      };
+
       const setViewedTransactionDetailId = (
         transactionDetailId: string | null,
       ): void => {
@@ -144,20 +156,35 @@ export function withTimelineStoreFeature() {
       return {
         loadTimeline,
         loadMoreTimeline,
+        updateFilters,
         setViewedTransactionDetailId,
         timelineRouteEffect$,
         timelineDetailRouteEffect$,
       };
     }),
     withComputed((store) => {
-      const viewedTimelineId = computed(() =>
+      const _sortedTimeline = computed(() => {
+        return sortTimelineEntities(store.entities());
+      });
+
+      const filteredTimeline = computed(() => {
+        const { dateRange, searchQuery } = store.filters();
+        let timeline = _sortedTimeline();
+
+        timeline = filterTimelineByDateRange(timeline, dateRange);
+        timeline = filterTimelineByQuery(timeline, searchQuery);
+
+        return filterNonEmptyTimelineEntries(timeline);
+      });
+
+      const _viewedTimelineId = computed(() =>
         store.viewedTransactionDetailId()?.split('_').pop(),
       );
 
       const currentTransactionDetail = computed(() => {
         const timeLineEntry = store
           .entities()
-          .find((item) => item.id === viewedTimelineId());
+          .find((item) => item.id === _viewedTimelineId());
 
         return timeLineEntry?.transactions.find(
           (txn) =>
@@ -165,9 +192,18 @@ export function withTimelineStoreFeature() {
         );
       });
 
+      const isFilterActive = computed(() => {
+        const { dateRange, searchQuery } = store.filters();
+        return (
+          (dateRange.startDate && dateRange.endDate) ||
+          (searchQuery && searchQuery.length > 0)
+        );
+      });
+
       return {
-        viewedTimelineId,
         currentTransactionDetail,
+        filteredTimeline,
+        isFilterActive,
       };
     }),
   );

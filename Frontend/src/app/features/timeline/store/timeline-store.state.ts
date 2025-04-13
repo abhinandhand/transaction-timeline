@@ -1,10 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Account, Pagination } from '../model/timeline.model';
+import { Account, Pagination, TimelineFilters } from '../model/timeline.model';
 
 export interface TimelineState {
-  account: Account;
-  pagination: Pagination;
   isLoading: boolean;
+  account: Account;
+  filters: TimelineFilters;
+  pagination: Pagination;
   error: HttpErrorResponse | null;
   isNoMoreTransactions: boolean;
   viewedTransactionDetailId: string | null;
@@ -13,6 +14,14 @@ export interface TimelineState {
 const initialTimelineState: TimelineState = {
   isLoading: false,
   error: null,
+  filters: {
+    dateRange: {
+      startDate: null,
+      endDate: null,
+    },
+    transactionType: null,
+    searchQuery: '',
+  },
   isNoMoreTransactions: false,
   viewedTransactionDetailId: null,
   account: {

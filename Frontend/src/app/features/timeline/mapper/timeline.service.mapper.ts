@@ -19,6 +19,7 @@ export class TimelineMapper {
   private mapTimelineEntry(entry: TimelineEntryResponse): TimelineEntry {
     return {
       id: entry.id,
+      transactionDate: entry.id,
       transactions: entry.transactions.map((transaction) =>
         this.mapTransaction(transaction, entry.id),
       ),

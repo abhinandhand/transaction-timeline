@@ -4,10 +4,16 @@ import { TimelineRoute } from '@features/timeline/model/timeline.model';
 import { timelineRoutes } from '@features/timeline/timeline.routes';
 
 export const routes: Routes = [
-  { path: '', redirectTo: TimelineRoute.Timeline, pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: TimelineRoute.Timeline,
+    pathMatch: 'full',
+    title: 'Nexbank - Transaction timeline',
+  },
   ...timelineRoutes,
   {
     path: '**',
+    title: 'Nexbank - Page not found',
     component: PageNotFoundComponent,
   },
 ];

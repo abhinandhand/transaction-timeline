@@ -6,11 +6,13 @@
   <app-account-holder-info [account]="timelineStore.account()" />
 
   <div class="mt-5">
-    <app-transaction-filter></app-transaction-filter>
+    <app-transaction-filter
+      (filterEvent)="timelineStore.updateFilters($event)"
+    ></app-transaction-filter>
   </div>
 
   <div class="my-4">
-    @for (day of timelineStore.entities(); track day.id) {
+    @for (day of timelineStore.filteredTimeline(); track day.id) {
       <app-transaction-list [transactionDay]="day"> </app-transaction-list>
 
       @if (
@@ -19,6 +21,20 @@
       ) {
         <div class="text-center">
           <p class="text-muted fs-5 m-0">No more transactions to load.</p>
+        </div>
+      }
+    } @empty {
+      @if (timelineStore.isFilterActive()) {
+        <div class="mt-5">
+          <p class="text-center text-muted fs-5 m-0">
+            No transactions found for the selected filters.
+          </p>
+        </div>
+      } @else {
+        <div class="mt-5">
+          <p class="text-center text-muted fs-5 m-0">
+            No transactions available yet. Make your first transaction.
+          </p>
         </div>
       }
     }
