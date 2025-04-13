@@ -10,7 +10,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint:fix": "ng lint --fix"
+    "lint:fix": "ng lint --fix",
+    "pages:start": "npm run build && wrangler pages dev dist/cloudflare --compatibility-date=2025-04-12",
+    "pages:build": "ng build && npm run process",
+    "pages:watch": "ng build --watch --configuration development",
+    "process": "node ./tools/copy-files.mjs",
+    "deploy": "npm run pages:build && wrangler pages deploy dist/cloudflare"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +37,7 @@
     "@angular-devkit/build-angular": "^19.2.6",
     "@angular/cli": "^19.2.6",
     "@angular/compiler-cli": "^19.2.0",
+    "@cloudflare/workers-types": "^4.20250412.0",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "19.3.0",
     "cypress": "^14.3.0",
@@ -47,6 +53,8 @@
     "prettier": "^3.5.3",
     "purgecss": "^7.0.2",
     "typescript": "~5.7.2",
-    "typescript-eslint": "8.27.0"
+    "wrangler": "^4.10.0",
+    "typescript-eslint": "8.27.0",
+    "xhr2": "^0.2.1"
   }
 }

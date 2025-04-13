@@ -27,7 +27,8 @@
       "@utils/*": ["./app/utils/*"],
       "@assets/*": ["./assets/*"],
       "@environments/*": ["./environments/*"]
-    }
+    },
+    "types": ["@cloudflare/workers-types/2023-07-01"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
