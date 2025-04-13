@@ -1,6 +1,7 @@
 import {
   Directive,
   ElementRef,
+  inject,
   input,
   OnDestroy,
   OnInit,
@@ -17,11 +18,11 @@ export class InfiniteScrollDirective implements OnInit, OnDestroy {
   nearEnd = output<void>();
   threshold = input<number>(600);
 
+  elementRef = inject(ElementRef);
+
   private window!: Window;
   private destroy$ = new Subject<void>();
   private debounceTimeMs = 300;
-
-  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     this.window = window;
@@ -31,7 +32,7 @@ export class InfiniteScrollDirective implements OnInit, OnDestroy {
       .subscribe(() => {
         const heightOfWholePage =
           this.window.document.documentElement.scrollHeight;
-        const heightOfElement = this.el.nativeElement.scrollHeight;
+        const heightOfElement = this.elementRef.nativeElement.scrollHeight;
         const currentScrolledY = this.window.scrollY;
         const innerHeight = this.window.innerHeight;
         const spaceOfElementAndPage = heightOfWholePage - heightOfElement;
