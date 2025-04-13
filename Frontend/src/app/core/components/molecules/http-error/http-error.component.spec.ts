@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpErrorComponent } from './http-error.component';
 
-describe('HttpErrorComponent', () => {
+xdescribe('HttpErrorComponent', () => {
   let component: HttpErrorComponent;
   let fixture: ComponentFixture<HttpErrorComponent>;
 

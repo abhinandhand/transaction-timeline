@@ -1,8 +1,8 @@
-import { TransactionDatePipePipe } from './transaction-date.pipe';
+import { TransactionDatePipe } from './transaction-date.pipe';
 
-describe('TransactionDatePipePipe', () => {
+describe('TransactionDatePipe', () => {
   it('create an instance', () => {
-    const pipe = new TransactionDatePipePipe();
+    const pipe = new TransactionDatePipe();
     expect(pipe).toBeTruthy();
   });
 });
