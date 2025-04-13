@@ -11,11 +11,13 @@ export const getPreferredTheme = () => {
 };
 
 /**
- * Extracts the transaction ID from a route URL.
+ * Extracts the transaction Detail ID from a route URL.
  * @param url - E.g., '/timeline/detail/txn_1_2025-04-11'
  * @returns The transaction ID (e.g., 'txn_2025-04-11_1') or null if invalid
  */
-export const extractTransactionIdFromUrl = (url: string): string | null => {
+export const extractTransactionDetailIdFromUrl = (
+  url: string,
+): string | null => {
   if (!url.startsWith('/timeline/detail/')) {
     return null;
   }
@@ -28,7 +30,9 @@ export const extractTransactionIdFromUrl = (url: string): string | null => {
  * @param transactionId - E.g., 'txn_1_2025-04-11'
  * @returns The timeline ID (e.g., '2025-04-11') or null if invalid
  */
-export const extractTimelineId = (transactionId: string): string | null => {
-  const parts = transactionId.split('_');
+export const extractTimelineId = (
+  transactionDetailId: string,
+): string | null => {
+  const parts = transactionDetailId.split('_');
   return parts.length > 1 ? parts[parts.length - 1] : null;
 };

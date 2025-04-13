@@ -2,9 +2,10 @@
   <app-card>
     <div class="card-body pb-1">
       <div class="transaction-day-label">
-        <app-transaction-date-header
-          [dateInfo]="transactionDay().id"
-        ></app-transaction-date-header>
+        <h6 class="text-primary m-0">
+          <app-transaction-date [dateInfo]="transactionDay().id">
+          </app-transaction-date>
+        </h6>
 
         @if (transactionDay().transactions) {
           <ul class="list-group list-group-flush">

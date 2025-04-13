@@ -1,14 +1,14 @@
 import { signalStore, withHooks, withState } from '@ngrx/signals';
-import { withTimelineStoreMethods } from './timeline-store.methods';
 import {
   initialiseTimelineFactory,
   TimelineState,
 } from './timeline-store.state';
+import { withTimelineStoreFeature } from './timeline-store.feature';
 
 export const TimelineStore = signalStore(
   { providedIn: 'root' },
   withState<TimelineState>(initialiseTimelineFactory),
-  withTimelineStoreMethods(),
+  withTimelineStoreFeature(),
   withHooks((store) => {
     return {
       onInit() {

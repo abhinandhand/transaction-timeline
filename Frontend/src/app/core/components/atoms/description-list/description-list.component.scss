@@ -1,0 +1,16 @@
+dl {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  dt {
+    font-size: 0.875rem;
+  }
+  
+  dd {
+    margin: 0;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase;
+  }

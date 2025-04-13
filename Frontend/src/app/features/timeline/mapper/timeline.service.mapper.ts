@@ -33,13 +33,13 @@ export class TimelineMapper {
     const amountInBaseCurrency = Math.abs(
       transaction.amount / (transaction.currencyRate || 1),
     );
-    const transactionId = `txn_${transaction.id.toString()}_${transactionDateId}`;
+    const transactionDetailId = `txn_${transaction.id.toString()}_${transactionDateId}`;
 
     return {
       ...transaction,
       amountInBaseCurrency,
       isCredit,
-      transactionId,
+      transactionDetailId,
     };
   }
 }

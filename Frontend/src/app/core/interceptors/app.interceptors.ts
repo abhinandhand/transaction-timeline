@@ -17,7 +17,7 @@ export function appInterceptor(
   return next(newReq).pipe(
     tap((event) => {
       if (event.type === HttpEventType.Response) {
-        console.log(req.url, 'returned a response with status', event.status);
+        console.info(req.url, 'returned a response with status', event.status);
       }
     }),
   );

@@ -7,14 +7,14 @@ export interface TimelineState {
   isLoading: boolean;
   error: HttpErrorResponse | null;
   isNoMoreTransactions: boolean;
-  viewedTransactionId: string | null;
+  viewedTransactionDetailId: string | null;
 }
 
 const initialTimelineState: TimelineState = {
   isLoading: false,
   error: null,
   isNoMoreTransactions: false,
-  viewedTransactionId: null,
+  viewedTransactionDetailId: null,
   account: {
     id: 0,
     name: '',

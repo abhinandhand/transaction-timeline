@@ -1,0 +1,18 @@
+<dl class="mb-2">
+  <dt
+    [ngClass]="{ 'text-uppercase': uppercaseKey() }"
+    class="text-muted fs-7 fw-medium"
+  >
+    {{ title() }}
+  </dt>
+  <dd class="d-flex justify-content-between align-items-center">
+    <span>{{ value() }}</span>
+    <button
+      *ngIf="showCopy()"
+      class="btn btn-sm"
+      (click)="copyToClipboard(value())"
+    >
+      <i class="bi bi-copy"></i>
+    </button>
+  </dd>
+</dl>

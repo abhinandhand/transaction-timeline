@@ -1,65 +1,53 @@
-<div class="container p-4">
-  <h2 class="text-primary mb-4">Transaction details</h2>
-  <div class="card border-0 shadow-sm mb-4">
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
-        <span class="">Mister XX</span>
-        <span class="fs-5 text-success">$1,200</span>
+@if (timelineStore.currentTransactionDetail(); as transactionDetail) {
+  <div class="container p-4">
+    <h2 class="text-primary mb-4">Transaction details</h2>
+    <app-card customClass="mb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <span class="">
+            {{ transactionDetail.otherParty?.name }}
+          </span>
+          <span class="fs-5 text-success">$1,200</span>
+        </div>
+        <small class="text-muted">
+          <app-transaction-date
+            [dateInfo]="transactionDetail.timestamp"
+          ></app-transaction-date>
+        </small>
       </div>
-      <small class="text-muted">Date</small>
-      <hr class="my-2" />
-    </div>
-  </div>
+    </app-card>
 
-  <div class="card border-0 shadow-sm mb-4">
-    <div class="card-body d-flex flex-column gap-3">
-      <div class="">
-        <small class="text-muted">Description</small>
-        <div class="d-flex justify-content-between align-items-center">
-          <span>some desc</span>
-          <button class="btn btn-sm">
-            <i class="bi bi-copy"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <app-card customClass="mb-4">
+      <div class="card-body d-flex flex-column gap-3">
+        @if (transactionDetail.description) {
+          <app-description-list
+            title="Description"
+            [value]="transactionDetail.description"
+            [showCopy]="true"
+          ></app-description-list>
+        }
 
-  <div class="card border-0 shadow-sm mb-4">
-    <div class="card-body d-flex flex-column gap-3">
-      <div class="">
-        <small class="text-muted">By</small>
-        <div class="d-flex justify-content-between align-items-center">
-          <span>ddfghjk</span>
-          <button class="btn btn-sm">
-            <i class="bi bi-copy"></i>
-          </button>
-        </div>
+        @if (timelineStore.account().name) {
+          <app-description-list
+            title="By"
+            [value]="timelineStore.account().name"
+            [showCopy]="true"
+          ></app-description-list>
+        }
+
+        @if (transactionDetail?.otherParty; as otherParty) {
+          @if (otherParty.iban) {
+            <app-description-list
+              title="IBAN"
+              [value]="otherParty.iban"
+              [showCopy]="true"
+              [uppercaseKey]="true"
+            ></app-description-list>
+          }
+        }
       </div>
-      <div class="">
-        <small class="text-muted">Nasty</small>
-        <div class="d-flex justify-content-between align-items-center">
-          <span>yuhdcxvbh</span>
-          <button class="btn btn-sm">
-            <i class="bi bi-copy"></i>
-          </button>
-        </div>
-      </div>
-      <div class="">
-        <small class="text-muted uppercase">IBAN</small>
-        <div class="d-flex justify-content-between align-items-center">
-          <span>NL00RABO0123456789</span>
-          <button class="btn btn-sm">
-            <i class="bi bi-copy"></i>
-          </button>
-        </div>
-      </div>
-      <div class="">
-        <small class="text-muted uppercase">Original Amount</small>
-        <div class="d-flex justify-content-between align-items-center">
-          <span>200</span>
-        </div>
-      </div>
-    </div>
+    </app-card>
   </div>
-</div>
+} @else {
+  <app-transaction-detail-not-found></app-transaction-detail-not-found>
+}

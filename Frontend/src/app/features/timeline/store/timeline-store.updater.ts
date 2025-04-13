@@ -51,13 +51,3 @@ export function setNoMoreTransactionsState(
     isNoMoreTransactions,
   };
 }
-
-export const setViewedTransactionId = (
-  state: TimelineState,
-  transactionId: string | null,
-): TimelineState => {
-  return {
-    ...state,
-    viewedTransactionId: transactionId,
-  };
-};
