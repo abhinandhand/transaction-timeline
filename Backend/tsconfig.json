@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
     "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
     "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": "."
+    "types": ["node"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["./**/*.ts", "./**/*.json"]
+  "include": ["server.ts", "*.json"]
 }
