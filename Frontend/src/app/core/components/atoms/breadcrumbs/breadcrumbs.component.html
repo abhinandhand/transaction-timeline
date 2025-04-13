@@ -1,22 +1,29 @@
-<nav aria-label="breadcrumb">
+<nav aria-label="Financial navigation breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <a routerLink="/timeline" class="text-primary text-decoration-none"
         >Overview</a
       >
     </li>
+
+    <span class="breadcrumb-separator" aria-hidden="true">
+      <i class="bi bi-chevron-right"></i>
+    </span>
+
     <li class="breadcrumb-item">
       @if (showDetailsBreadcrumb()) {
         <a routerLink="/timeline" class="text-primary text-decoration-none"
           >Transactions</a
         >
       } @else {
-        <span class="breadcrumb-item active" aria-current="page"
-          >Transactions</span
-        >
+        <span aria-current="page">Transactions</span>
       }
     </li>
+
     @if (showDetailsBreadcrumb()) {
+      <span class="breadcrumb-separator" aria-hidden="true">
+        <i class="bi bi-chevron-right"></i>
+      </span>
       <li class="breadcrumb-item active" aria-current="page">Details</li>
     }
   </ol>

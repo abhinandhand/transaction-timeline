@@ -17,13 +17,7 @@ export class NameBadgeComponent implements OnChanges {
   initials = '';
   badgeColor = '';
 
-  private colors: string[] = [
-    '#FFD700',
-    '#B7F5B7',
-    '#B4E1F4',
-    '#FFCED6',
-    '#CED8E8',
-  ];
+  private colors: string[] = ['#0053D6', '#007A33'];
 
   ngOnChanges(): void {
     this.initials = this.getInitials(this.name() as string);

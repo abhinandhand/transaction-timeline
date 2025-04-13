@@ -1,30 +1,27 @@
-<div class="my-2">
-  <app-card>
-    <div class="card-body pb-1">
-      <div class="transaction-day-label">
-        <h6 class="text-primary m-0">
-          <app-transaction-date [dateInfo]="transactionDay().id">
-          </app-transaction-date>
-        </h6>
+<app-card class="my-2 list-group-item border-0 m-0 p-0">
+  <div class="card-body pb-1">
+    <div class="transaction-day-label">
+      <h6 class="text-primary m-0" [attr.aria-label]="transactionDateAriaLabel">
+        {{ transactionDay().transactionDate | transactionDate }}
+      </h6>
 
-        @if (transactionDay().transactions) {
-          <ul class="list-group list-group-flush">
-            @for (
-              transaction of transactionDay().transactions;
-              track transaction.id
-            ) {
-              <app-transaction-item
-                [data]="transaction"
-                [isLast]="$index === transactionDay().transactions.length - 1"
-              ></app-transaction-item>
-            }
-          </ul>
-        } @else {
-          <div class="p-3 text-muted text-center">
-            No transactions for this day
-          </div>
-        }
-      </div>
+      @if (transactionDay().transactions) {
+        <ul class="list-group list-group-flush">
+          @for (
+            transaction of transactionDay().transactions;
+            track transaction.id
+          ) {
+            <app-transaction-item
+              [data]="transaction"
+              [isLast]="$index === transactionDay().transactions.length - 1"
+            ></app-transaction-item>
+          }
+        </ul>
+      } @else {
+        <div class="p-3 text-muted text-center">
+          No transactions for this day
+        </div>
+      }
     </div>
-  </app-card>
-</div>
+  </div>
+</app-card>

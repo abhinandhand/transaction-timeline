@@ -6,11 +6,12 @@
     {{ title() }}
   </dt>
   <dd class="d-flex justify-content-between align-items-center">
-    <span>{{ value() }}</span>
+    {{ value() }}
     <button
       *ngIf="showCopy()"
       class="btn btn-sm"
       (click)="copyToClipboard(value())"
+      aria-label="Copy to clipboard"
     >
       <i class="bi bi-copy"></i>
     </button>

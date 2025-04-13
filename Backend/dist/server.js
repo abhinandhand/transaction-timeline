@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const allowedOrigins = ["http://localhost:4200"];
+const allowedOrigins = ["http://localhost:4200", "http://127.0.0.1:8081"];
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin)
