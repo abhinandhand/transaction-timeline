@@ -32,11 +32,10 @@ app.get("/api/transactions", (req, res) => {
         res.send(require("./transactions_page3.json"));
     }
     else {
-        // res.send(require("./transactions.json"));
-        res.send(require("./txn-test-data-un-ordered.json"));
+        res.send(require("./transactions.json"));
     }
 });
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log("Express app listening on port 8080!");
 });
 //# sourceMappingURL=server.js.map
