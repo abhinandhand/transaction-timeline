@@ -13,7 +13,9 @@
 
   <div class="my-4">
     @for (day of timelineStore.filteredTimeline(); track day.id) {
-      <app-transaction-list [transactionDay]="day"> </app-transaction-list>
+      <section class="list-group">
+        <app-transaction-list [transactionDay]="day"> </app-transaction-list>
+      </section>
 
       @if (
         timelineStore.isNoMoreTransactions() &&

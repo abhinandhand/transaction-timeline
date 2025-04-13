@@ -1,13 +1,19 @@
 @if (timelineStore.currentTransactionDetail(); as transactionDetail) {
-  <div class="container p-4">
+  <div class="container p-0 py-4">
     <h2 class="text-primary mb-4">Transaction details</h2>
     <app-card customClass="mb-4">
       <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <span class="">
-            {{ transactionDetail.otherParty?.name }}
-          </span>
-          <span class="fs-5 text-success">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <app-name-badge
+              [name]="transactionDetail.otherParty?.name"
+            ></app-name-badge>
+
+            <div class="fs-5">
+              {{ transactionDetail.otherParty?.name }}
+            </div>
+          </div>
+          <span class="fs-5">
             <app-transaction-amount
               [amount]="transactionDetail.amountInBaseCurrency"
               [isCredit]="transactionDetail.isCredit"
@@ -16,9 +22,11 @@
             ></app-transaction-amount>
           </span>
         </div>
-        <small class="text-muted">
-          {{ transactionDetail.timestamp | date: "MMMM d, y, h:mm a" }}
-        </small>
+        <div class="mt-2">
+          <small class="text-muted">
+            {{ transactionDetail.timestamp | date: "MMMM d, y, h:mm a" }}
+          </small>
+        </div>
       </div>
     </app-card>
 

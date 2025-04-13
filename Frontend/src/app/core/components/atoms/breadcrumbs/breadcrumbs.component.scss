@@ -1,0 +1,49 @@
+.breadcrumb {
+    --bs-breadcrumb-divider: none; /* Disable Bootstrap's default > separator */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem; /* Bootstrap default */
+  }
+  
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .breadcrumb-separator {
+    color: #6c757d; 
+    font-size: 0.9rem;
+    padding: 0 0.75rem; 
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .breadcrumb-separator .bi-chevron-right {
+    font-size: 0.8rem; 
+  }
+  
+
+  .breadcrumb-item.active {
+    color: #6c757d;
+    font-weight: 500;
+  }
+  
+
+  .breadcrumb-item a {
+    text-decoration: none;
+    color: #0d6efd;
+    transition: color 0.2s ease;
+  }
+  
+  .breadcrumb-item a:hover {
+    color: #005cbf;
+    text-decoration: underline;
+  }
+  
+ 
+  @media (max-width: 576px) {
+    .breadcrumb-separator {
+      padding: 0 0.75rem; 
+    }
+  }

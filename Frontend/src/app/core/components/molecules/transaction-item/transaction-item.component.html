@@ -1,9 +1,12 @@
-<a
-  class="txn-item"
-  [routerLink]="`/timeline/detail/${data().transactionDetailId}`"
-  ><li
-    class="list-group-item d-flex justify-content-between align-items-center px-3 py-3 border-0 cursor-pointer"
-    [ngClass]="{ 'border-bottom': !isLast() }"
+<li
+  class="txn-item list-group-item border-0 cursor-pointer mb-1"
+  [ngClass]="{ 'border-bottom': !isLast() }"
+>
+  <a
+    class="d-flex justify-content-between align-items-center w-100 text-decoration-none px-0 py-2"
+    (keydown)="onKeyDown($event)"
+    [routerLink]="`/timeline/detail/${data().transactionDetailId}`"
+    [attr.aria-label]="transactionItemAiraLabel"
   >
     <div class="d-flex align-items-center gap-3">
       <app-name-badge [name]="data().otherParty?.name"></app-name-badge>
@@ -17,5 +20,5 @@
         customClass="display-2 fs-6"
       ></app-transaction-amount>
     </div>
-  </li>
-</a>
+  </a>
+</li>

@@ -1,11 +1,20 @@
 <span
   class="fw-normal"
   [ngClass]="[customClass(), isCredit() ? 'badge text-bg-success-light' : '']"
+  role="status"
+  [attr.aria-label]="transactionAmountAriaLabel"
 >
-  @if (isCredit()) {
-    +
-  } @else {
-    -
-  }
-  <app-money [amount]="amount()" [showSymbol]="showCurrency()"> </app-money>
+  <span aria-hidden="true">
+    @if (isCredit()) {
+      <span>+</span>
+    } @else {
+      -
+    }
+  </span>
+  <app-money
+    aria-hidden="true"
+    [amount]="amount()"
+    [showSymbol]="showCurrency()"
+  >
+  </app-money>
 </span>
