@@ -13,6 +13,12 @@ Next Generation Bank is a sleek, modern web application designed to give users a
 
 Nex Bank is packed with features to ensure a smooth and delightful user experience while keeping the codebase clean and developer-friendly:
 
+Folder Structurre:
+
+<img width="729" alt="image" src="https://github.com/user-attachments/assets/dfc871c9-cfbb-4acd-b5e2-31c215d2c762" />
+
+
+- **Scalable and Maintaibale** : Adopts a modular architecture that ensures clean separation of concerns, making the codebase easy to scale and maintain. Promoting reusability and clarity.
 - **Smart State Management**: Powered by **Signal Store** with a Redux-inspired approach, Nex Bank keeps data predictable and reactive, making updates a breeze.
 - **Reusable Components**: Modular, lightweight components make the app easy to maintain, test, and reuse across different features.
 - **Filter & Sort Magic**: Sort and filter transactions effortlessly with reactive computed properties.
