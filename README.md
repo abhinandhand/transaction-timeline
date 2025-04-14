@@ -9,28 +9,26 @@ Next Generation Bank is a sleek, modern web application designed to give users a
 
 ![image](https://github.com/user-attachments/assets/70179d6a-9d93-4b1a-8058-09ce8a126c5d)
 
-## What Makes Nex Bank Special? ✨
+### 📂 Folder Structure
+<img src="https://github.com/user-attachments/assets/dfc871c9-cfbb-4acd-b5e2-31c215d2c762" alt="Sorted Results" width="750">  
 
+### 🚀 Core Features
 Nex Bank is packed with features to ensure a smooth and delightful user experience while keeping the codebase clean and developer-friendly:
 
-Folder Structurre:
+- **Scalable & Maintainable**: Modular architecture ensures a clean separation of concerns, promoting reusability, clarity, and ease of scaling.
+- **Smart State Management**: Powered by **Signal Store** with a Redux-inspired approach for predictable, reactive data updates.
+- **Reusable Components**: Lightweight, modular components simplify maintenance, testing, and reuse across features.
+- **Filter & Sort Magic**: Effortlessly sort and filter transactions using reactive computed properties.
+- **Dark Mode**: Toggle dark mode for a comfortable experience in any lighting condition.
+- **Infinite Scrolling**: Seamlessly browse large transaction sets with smooth infinite scrolling.
+- **Rock-Solid Error Handling**: Refresh and retry options ensure smooth recovery from errors.
+- **Accessibility First**: Meets WCAG guidelines with keyboard navigation and screen reader support for inclusive access.
+- **Responsive Design**: Adapts beautifully to phones, tablets, desktops, and beyond.
+- **Performance Boost**: Smart caching and efficient data fetching minimize API calls.
+- **Clean Data Models**: Type-safe interfaces keep code organized and maintainable.
+- **Testing Ready**: Structured for straightforward unit and end-to-end testing.
 
-<img width="729" alt="image" src="https://github.com/user-attachments/assets/dfc871c9-cfbb-4acd-b5e2-31c215d2c762" />
-
-
-- **Scalable and Maintaibale** : Adopts a modular architecture that ensures clean separation of concerns, making the codebase easy to scale and maintain. Promoting reusability and clarity.
-- **Smart State Management**: Powered by **Signal Store** with a Redux-inspired approach, Nex Bank keeps data predictable and reactive, making updates a breeze.
-- **Reusable Components**: Modular, lightweight components make the app easy to maintain, test, and reuse across different features.
-- **Filter & Sort Magic**: Sort and filter transactions effortlessly with reactive computed properties.
-- **Dark Mode**: Switch to dark mode for a comfortable viewing experience in any light.
-- **Infinite Scrolling**: Browse large sets of transactions smoothly with seamless infinite scrolling.
-- **Rock-Solid Error Handling**: If something goes wrong, Nex Bank offers refresh and retry options to keep things running smoothly.
-- **Accessibility First**: Built to meet WCAG guidelines, with keyboard navigation and screen reader support to ensure everyone can use it.
-- **Responsive Design**: Looks great on phones, tablets, desktops, and everything in between.
-- **Performance Boost**: Minimizes API calls with smart caching and efficient data fetching.
-- **Clean Data Models**: Type-safe interfaces keep the code organized and maintainable.
-- **Testing Ready**: Structured for easy unit and end-to-end testing, so adding tests is a snap.
-
+  
 ## Tech Stack 🛠️
 
 Nex Bank is built with modern tools to ensure reliability and developer happiness:
