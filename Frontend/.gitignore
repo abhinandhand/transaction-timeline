@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 /bazel-out
+/.wrangler
+/.vscode
+/.angular
 
 # Node
 /node_modules
