@@ -3,6 +3,11 @@ This project is a modern, production-ready web application designed to be scalab
 
 The primary goal was to build an app that is easy to test, maintain, and scale while minimizing API requests and delivering a seamless user experience through features like infinite scrolling, error retry mechanisms, and clean, intuitive interfaces and support  **new features with ease**.
 
+ ![image](https://github.com/user-attachments/assets/8050bb64-08fd-4d04-b3e5-2b6e85e89a06)
+ ![image](https://github.com/user-attachments/assets/621c507e-3bf5-4ea7-b8d2-3568d773bedb)
+
+
+
 ## Features
 - **Scalable State Management**: Utilizes **Signal Store** with a Redux mindset to manage application state efficiently. Store methods and computed signals ensure predictable state updates and optimized reactivity.
 - **Reusable Components**: Designed modular, lightweight components to simplify maintenance, improve testability, and promote code reuse across the app.
@@ -19,6 +24,14 @@ The primary goal was to build an app that is easy to test, maintain, and scale w
 - **State Management**: Signal Store
 - **Styling**: [ CSS, SCSS, Boostrap]
 - **Testing**: [Jest, Cypress]
+
+
+
+# Sorting
+![image](https://github.com/user-attachments/assets/57e2df22-1a8c-4548-8ab0-d4787588ffa6)
+
+![image](https://github.com/user-attachments/assets/f72fca89-2c59-428a-872b-8cdd1e96605f)
+
 
 
 ## Testing
