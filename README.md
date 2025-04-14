@@ -1,5 +1,5 @@
 ## Overview
-This project is a modern, production-ready web application designed to be scalable, maintainable, and accessible. The app leverages a Redux-inspired state management approach using **Signal Store**, focuses on reusable components, and incorporates best practices for error handling, responsiveness, accessibility, and performance optimization.
+Next generation bank(Nex Bank) is a modern, production-ready web application designed to be scalable, maintainable, and accessible. The app leverages a Redux-inspired state management approach using **Signal Store**, focuses on reusable components, and incorporates best practices for error handling, responsiveness, accessibility, and performance optimization.
 
 The primary goal was to build an app that is easy to test, maintain, and scale while minimizing API requests and delivering a seamless user experience through features like infinite scrolling, error retry mechanisms, and clean, intuitive interfaces and support  **new features with ease**.
 
