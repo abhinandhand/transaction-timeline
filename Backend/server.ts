@@ -2,53 +2,58 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import fs from "fs";
+import path from "path";
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:4200",
-  "http://127.0.0.1:8081",
-  process.env.RENDER_EXTERNAL_URL || "https://your-app.onrender.com", // Add Render URL
-];
-
+// Apply CORS middleware
 app.use(
   cors({
-    origin: function (
-      origin: string | undefined,
-      callback: (err: Error | null, allow?: boolean) => void
-    ) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg =
-          "The CORS policy for this site does not allow access from the specified Origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
+    origin: "https://nex-bank.pages.dev", // Allow only your frontend
+    methods: ["GET", "OPTIONS", "POST"],
+    allowedHeaders: ["Content-Type", "X-Authentication-Token"],
   })
 );
 
-app.use(bodyParser.json()); // Support JSON-encoded bodies
-app.use(bodyParser.urlencoded({ extended: false })); // Support URL-encoded bodies
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+// Routes
 app.get("/", (req: Request, res: Response) => {
-  console.log(req.body);
-  console.log("status success");
+  console.log("GET /");
   res.send("OK");
 });
 
 app.get("/api/transactions", (req: Request, res: Response) => {
+  console.log(`GET /api/transactions?page=${req.query.page}`);
   const pageRequested = parseInt(req.query.page as string) || 1;
+  let filePath: string;
+
   if (pageRequested === 2) {
-    res.send(require("./data/transactions_page2.json"));
+    filePath = path.join(__dirname, "data", "transactions_page2.json");
   } else if (pageRequested === 3) {
-    res.send(require("./data/transactions_page3.json"));
+    filePath = path.join(__dirname, "data", "transactions_page3.json");
   } else {
-    res.send(require("./data/transactions.json"));
+    filePath = path.join(__dirname, "data", "transactions.json");
+  }
+
+  console.log(`Reading file: ${filePath}`);
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    res.send(data);
+  } catch (err) {
+    console.error(`Error reading file ${filePath}:`, err);
+    res.status(500).send("Error loading transactions");
   }
 });
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`Express app listening on port ${port}!`);
+// Error handling
+app.use((err: Error, req: Request, res: Response, next: Function) => {
+  console.error(`Error on ${req.method} ${req.url}:`, err.stack);
+  res.status(500).send("Internal Server Error");
 });
+
+// Export for Vercel
+module.exports = app;
