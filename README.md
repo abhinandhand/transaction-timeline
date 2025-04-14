@@ -1,46 +1,69 @@
-## Overview
-Next generation bank(Nex Bank) is a modern, production-ready web application designed to be scalable, maintainable, and accessible. The app leverages a Redux-inspired state management approach using **Signal Store**, focuses on reusable components, and incorporates best practices for error handling, responsiveness, accessibility, and performance optimization.
+# Welcome to Nex Bank 🌟
 
-The primary goal was to build an app that is easy to test, maintain, and scale while minimizing API requests and delivering a seamless user experience through features like infinite scrolling, error retry mechanisms, and clean, intuitive interfaces and support  **new features with ease**.
+Next Generation Bank is a sleek, modern web application designed to give users a clear and intuitive view of their financial transactions. Built with **scalability**, **accessibility**, and **performance** in mind, it’s a production-ready app that’s easy to maintain, test, and extend. 
 
- ![image](https://github.com/user-attachments/assets/8050bb64-08fd-4d04-b3e5-2b6e85e89a06)
- ![image](https://github.com/user-attachments/assets/621c507e-3bf5-4ea7-b8d2-3568d773bedb)
+👉 **Try it live!** Visit [nex-bank.pages.dev](https://nex-bank.pages.dev/)  
+👉 **Jump to a transaction**: Link directly to details, like [this example](https://nex-bank.pages.dev/timeline/detail/txn_1_2025-11-04).
 
+![image](https://github.com/user-attachments/assets/4cd53388-c4b1-4aa9-8277-2cd6f113c1b0)
 
+![image](https://github.com/user-attachments/assets/70179d6a-9d93-4b1a-8058-09ce8a126c5d)
 
-## Features
-- **Scalable State Management**: Utilizes **Signal Store** with a Redux mindset to manage application state efficiently. Store methods and computed signals ensure predictable state updates and optimized reactivity.
-- **Reusable Components**: Designed modular, lightweight components to simplify maintenance, improve testability, and promote code reuse across the app.
-- **Infinite Scrolling**: Implements seamless infinite scrolling to enhance user experience when navigating large datasets.
-- **Error Handling**: Robust error handling with refresh and retry mechanisms for failed API requests, ensuring a resilient user experience.
-- **Accessibility**: Built with accessibility in mind, adhering to WCAG guidelines to ensure the app is usable by all, including keyboard navigation and screen reader support.
-- **Responsiveness**: Fully responsive design, optimized for various devices and screen sizes.
-- **Performance Optimization**: Minimizes API requests through efficient data fetching and caching strategies.
-- **Clean Data Models**: Well-defined interfaces and models to ensure type safety and maintainable code.
-- **Testing Readiness**: Structured for easy component and end-to-end testing, with reusable components simplifying test setup.
+## What Makes Nex Bank Special? ✨
 
-## Tech Stack
-- **Frontend Framework**: [Angular]
+Nex Bank is packed with features to ensure a smooth and delightful user experience while keeping the codebase clean and developer-friendly:
+
+- **Smart State Management**: Powered by **Signal Store** with a Redux-inspired approach, Nex Bank keeps data predictable and reactive, making updates a breeze.
+- **Reusable Components**: Modular, lightweight components make the app easy to maintain, test, and reuse across different features.
+- **Filter & Sort Magic**: Sort and filter transactions effortlessly with reactive computed properties.
+- **Dark Mode**: Switch to dark mode for a comfortable viewing experience in any light.
+- **Infinite Scrolling**: Browse large sets of transactions smoothly with seamless infinite scrolling.
+- **Rock-Solid Error Handling**: If something goes wrong, Nex Bank offers refresh and retry options to keep things running smoothly.
+- **Accessibility First**: Built to meet WCAG guidelines, with keyboard navigation and screen reader support to ensure everyone can use it.
+- **Responsive Design**: Looks great on phones, tablets, desktops, and everything in between.
+- **Performance Boost**: Minimizes API calls with smart caching and efficient data fetching.
+- **Clean Data Models**: Type-safe interfaces keep the code organized and maintainable.
+- **Testing Ready**: Structured for easy unit and end-to-end testing, so adding tests is a snap.
+
+## Tech Stack 🛠️
+
+Nex Bank is built with modern tools to ensure reliability and developer happiness:
+
+- **Frontend Framework**: Angular
 - **State Management**: Signal Store
-- **Styling**: [ CSS, SCSS, Boostrap]
-- **Testing**: [Jest, Cypress]
+- **Styling**: CSS, SCSS, Bootstrap
+- **Testing**: Jest, Cypress
 
+### Lighthouse Performance Snapshot
 
+Nex Bank scores high on performance, accessibility, and SEO, but there’s always room to grow!  
+![Lighthouse Results](https://github.com/user-attachments/assets/13a83d0c-9f96-4fec-ad53-414e3985cd43)
 
-# Sorting
-![image](https://github.com/user-attachments/assets/57e2df22-1a8c-4548-8ab0-d4787588ffa6)
+**Areas to Polish**:
+- **Unused CSS**: Bootstrap includes some extra styles. We could slim it down using PurgeCSS or stick to specific SCSS modules.
+- **Accessibility Tweaks**: Custom Angular elements in lists (e.g., non-`<li>` tags) can confuse screen readers. Switching to web components or stricter list structures could help.
 
-![image](https://github.com/user-attachments/assets/f72fca89-2c59-428a-872b-8cdd1e96605f)
+## Sorting in Action 📅
 
+Sort transactions by date, amount, or more with a single click!  
+<img src="https://github.com/user-attachments/assets/f72fca89-2c59-428a-872b-8cdd1e96605f" alt="Sorted Results" width="500">  
 
+## Testing 🧪
 
-## Testing
-While I would like to add more comprehensive unit tests, the app's architecture is designed to facilitate testing. Reusable components and a clear separation of concerns make it straightforward to add unit tests for individual components or E2E tests for user flows in the future.
+Nex Bank’s architecture is test-friendly, with modular components and clear separation of concerns. While I haven’t added extensive unit tests yet, the setup makes it easy to write tests for components, services, or end-to-end user flows using Jest or Cypress.
 
-## Future Improvements
-- **Unit Testing**: Add comprehensive unit tests for components and services to ensure full code coverage.
-- **Performance Enhancements**: Explore additional optimizations like lazy loading for assets or advanced caching strategies.
-- **Extended Accessibility**: Conduct thorough accessibility audits to further improve compliance with WCAG standards.
+## What’s Next? 🚀
+
+We’re excited to keep improving Nex Bank! Here are some ideas for the future:
+
+- **More Tests**: Add comprehensive unit and E2E tests for full confidence in the codebase.
+- **Performance Wins**: Explore lazy loading for assets or advanced caching to make things even faster.
+- **Accessibility Boost**: Conduct deeper audits to ensure top-tier WCAG compliance.
+- **New Features**: Add more filtering options, export tools, or personalized dashboards.
+
+## Get Started 🏁
+
+Ready to dive in? Follow these steps to run Nex Bank locally:
 
 ## Installation
 1. Clone the repository:
@@ -60,7 +83,6 @@ npm run start:windows
 ```
 
 3. Run Frontend
-
 
 ```
 cd Frontend
