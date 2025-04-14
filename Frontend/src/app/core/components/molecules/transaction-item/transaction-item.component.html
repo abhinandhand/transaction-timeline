@@ -7,10 +7,13 @@
     (keydown)="onKeyDown($event)"
     [routerLink]="`/timeline/detail/${data().transactionDetailId}`"
     [attr.aria-label]="transactionItemAiraLabel"
+    data-cy="transaction-item-link"
   >
     <div class="d-flex align-items-center gap-3">
       <app-name-badge [name]="data().otherParty?.name"></app-name-badge>
-      <span class="fw-medium">{{ data().otherParty?.name || "Unknown" }}</span>
+      <span class="fw-medium" data-cy="transaction-item-other-party-name">{{
+        data().otherParty?.name || "Unknown"
+      }}</span>
     </div>
 
     <div class="display-2 fs-6">

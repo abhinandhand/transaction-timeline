@@ -1,23 +1,27 @@
 import {
   Timeline,
   TimelineResponse,
+  Transaction,
 } from '@features/timeline/model/timeline.model';
+
+export const mockTransaction: Transaction = {
+  id: 1,
+  timestamp: '2023-10-01T10:00:00Z',
+  amount: 100,
+  currencyCode: 'USD',
+  currencyRate: 0.85,
+  description: 'Payment',
+  otherParty: { name: 'John Doe', iban: 'DE123' },
+  transactionDetailId: '1',
+  amountInBaseCurrency: 85,
+  isCredit: true,
+};
 
 export const mockTimelineResponse: TimelineResponse = {
   days: [
     {
       id: '2023-10-01',
-      transactions: [
-        {
-          id: 1,
-          timestamp: '2023-10-01T10:00:00Z',
-          amount: 100,
-          currencyCode: 'USD',
-          currencyRate: 0.85,
-          description: 'Payment',
-          otherParty: { name: 'John Doe', iban: 'DE123' },
-        },
-      ],
+      transactions: [mockTransaction],
     },
   ],
   account: {

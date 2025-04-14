@@ -14,9 +14,9 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
-import { mount } from 'cypress/angular'
+import { mount } from 'cypress/angular';
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -25,12 +25,33 @@ import { mount } from 'cypress/angular'
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount
+      mount: typeof mount;
+      mountWithSpacing(
+        component: any,
+        options?: Partial<Cypress.MountOptions>,
+      ): Chainable<any>;
     }
   }
 }
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', mount);
 
 // Example use:
 // cy.mount(MyComponent)
+
+Cypress.Commands.add('mountWithSpacing', (component, options) => {
+  const spacingStyle = 'padding: 2rem; width: 75%;';
+  return cy.mount(
+    `<div style="${spacingStyle}">
+      <ng-container *ngComponentOutlet="component; inputs: inputs"></ng-container>
+    </div>`,
+    {
+      ...options,
+      imports: [component, ...(options.imports || [])],
+      componentProperties: {
+        component,
+        inputs: options.componentProperties || {},
+      },
+    },
+  );
+});

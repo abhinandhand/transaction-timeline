@@ -1,8 +1,9 @@
-# Welcome to Nex Bank 🌟
+# Assignment:  🌟
 
-Next Generation Bank is a sleek, modern web application designed to give users a clear and intuitive view of their financial transactions. Built with **scalability**, **accessibility**, and **performance** in mind, it’s a production-ready app that’s easy to maintain, test, and extend. 
+Next Generation Bank (Nex Bank) is a sleek, modern web application designed to give users a clear and intuitive view of their financial transactions. Built with **scalability**, **accessibility**, and **performance** in mind, it’s a production-ready app that’s easy to maintain, test, and extend. In this assignment, I focused primarily on building strong fundamentals for scaling up the project, with a clean and scalable feature store, as well as modular and reusable components following Redux principles.
 
 👉 **Try it live!** Visit [nex-bank.pages.dev](https://nex-bank.pages.dev/)  
+
 👉 **Jump to a transaction**: Link directly to details, like [this example](https://nex-bank.pages.dev/timeline/detail/txn_1_2025-11-04).
 
 ![image](https://github.com/user-attachments/assets/4cd53388-c4b1-4aa9-8277-2cd6f113c1b0)
@@ -21,7 +22,7 @@ Nex Bank is packed with features to ensure a smooth and delightful user experien
 - **Filter & Sort Magic**: Effortlessly sort and filter transactions using reactive computed properties.
 - **Dark Mode**: Toggle dark mode for a comfortable experience in any lighting condition.
 - **Infinite Scrolling**: Seamlessly browse large transaction sets with smooth infinite scrolling.
-- **Rock-Solid Error Handling**: Refresh and retry options ensure smooth recovery from errors.
+- **Solid Error Handling**: Refresh and retry options ensure smooth recovery from errors.
 - **Accessibility First**: Meets WCAG guidelines with keyboard navigation and screen reader support for inclusive access.
 - **Responsive Design**: Adapts beautifully to phones, tablets, desktops, and beyond.
 - **Performance Boost**: Smart caching and efficient data fetching minimize API calls.
@@ -30,8 +31,6 @@ Nex Bank is packed with features to ensure a smooth and delightful user experien
 
   
 ## Tech Stack 🛠️
-
-Nex Bank is built with modern tools to ensure reliability and developer happiness:
 
 - **Frontend Framework**: Angular
 - **State Management**: Signal Store
@@ -54,7 +53,10 @@ Sort transactions by date, amount, or more with a single click!
 
 ## Testing 🧪
 
-Nex Bank’s architecture is test-friendly, with modular components and clear separation of concerns. While I haven’t added extensive unit tests yet, the setup makes it easy to write tests for components, services, or end-to-end user flows using Jest or Cypress.
+Nex Bank’s architecture is test-friendly, with modular components and clear separation of concerns. While I haven’t added many comprehensive unit tests yet, the setup makes it easy to write tests for components, services, or end-to-end user flows using Jest or Cypress with the use of dedicated mock files. Here is the screenshot for one component based e2e testing using Cypress.
+
+![image](https://github.com/user-attachments/assets/acb4e44f-0cc2-4397-acbb-e584e63291c1)
+
 
 ## What’s Next? 🚀
 
@@ -79,6 +81,7 @@ Ready to dive in? Follow these steps to run Nex Bank locally:
 
 ```
 cd Backend
+
 npm run start:mac
 
 or 
@@ -94,6 +97,11 @@ npm i
 npm run start
 ```
 
+4. Run Cypress
+  
+```
+npx cypress open
+```
 
 # Assignment Rabobank
 
